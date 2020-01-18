@@ -13,9 +13,9 @@ class Service {
     static let shared = Service()
     let baseUrl = "https://pokedex-417cb.firebaseio.com/.json"
     
-    func fetchPokemon(completion: @escaping ([Pokemon]) -> ()) {
+    func fetchPokemon(completion: @escaping ([PokemonModel]) -> Void) {
         
-        var pokemonArray = [Pokemon]()
+        var pokemonArray = [PokemonModel]()
         
         guard let url = URL(string: baseUrl) else { return }
         
@@ -34,7 +34,7 @@ class Service {
                 // перебираю полученный массив на id (key) и хештаблицу [String : AnyObject] (dictionary)
                 for (key, result) in resultArray.enumerated() {
                     if let dictionary = result as? [String : AnyObject] {
-                        let pokemon = Pokemon(id: key, dictionary: dictionary)
+                        let pokemon = PokemonModel(id: key, dictionary: dictionary)
                         
                         guard let imageUrl = pokemon.imageUrl else { return }
                         

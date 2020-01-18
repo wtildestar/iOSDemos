@@ -14,7 +14,7 @@ class PokedexController: UICollectionViewController {
     
     // MARK: - Properties
     
-    var pokemon = [Pokemon]()
+    var pokemon = [PokemonModel]()
     
     // MARK: - Init
     
