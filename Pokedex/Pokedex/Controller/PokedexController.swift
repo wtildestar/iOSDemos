@@ -14,6 +14,8 @@ class PokedexController: UICollectionViewController {
     
     // MARK: - Properties
     
+    var pokemon = [Pokemon]()
+    
     // MARK: - Init
     
     override func viewDidLoad() {
@@ -31,7 +33,12 @@ class PokedexController: UICollectionViewController {
     // MARK: - API
     
     func fetchPokemon() {
-        Service.shared.fetchPokemon()
+        Service.shared.fetchPokemon { (pokemon) in
+            DispatchQueue.main.async {
+                self.pokemon = pokemon
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     // MARK: - Helper Functions
@@ -64,11 +71,13 @@ extension PokedexController {
         return UIEdgeInsets(top: 32, left: 8, bottom: 8, right: 8)
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return pokemon.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PokedexCell
-        cell.backgroundColor = .blue
+        
+        cell.pokemon = pokemon[indexPath.item]
+        
         return cell
     }
 }
