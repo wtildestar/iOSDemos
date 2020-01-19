@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol infoViewDelegate {
+protocol InfoViewDelegate {
     func dismissInfoView(withPokemon pokemon: PokemonModel?)
 }
 
 class InfoView: UIView {
     
-    var delegate: infoViewDelegate?
+    var delegate: InfoViewDelegate?
     
     var pokemon: PokemonModel? {
         didSet {
@@ -45,10 +45,13 @@ class InfoView: UIView {
         return iv
     }()
     
+    // lazy для addSubview
     lazy var nameContainerView: UIView = {
        let view = UIView()
-        
-        
+        view.backgroundColor = .mainPink()
+        view.addSubview(nameLabel)
+        view.layer.cornerRadius = 5
+        nameLabel.center(inView: view)
         return view
     }()
     
