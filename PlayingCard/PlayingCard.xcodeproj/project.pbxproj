@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D7DD000323D9D905004811BC /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DD000223D9D905004811BC /* PlayingCard.swift */; };
 		D7DD000523D9EF1F004811BC /* PlayingCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DD000423D9EF1E004811BC /* PlayingCardDeck.swift */; };
+		D7DD000723DA1E85004811BC /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DD000623DA1E85004811BC /* PlayingCardView.swift */; };
 		D7DDFFEE23D9D8E7004811BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DDFFED23D9D8E7004811BC /* AppDelegate.swift */; };
 		D7DDFFF023D9D8E7004811BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DDFFEF23D9D8E7004811BC /* SceneDelegate.swift */; };
 		D7DDFFF223D9D8E7004811BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DDFFF123D9D8E7004811BC /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		D7DD000223D9D905004811BC /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		D7DD000423D9EF1E004811BC /* PlayingCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardDeck.swift; sourceTree = "<group>"; };
+		D7DD000623DA1E85004811BC /* PlayingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardView.swift; sourceTree = "<group>"; };
 		D7DDFFEA23D9D8E7004811BC /* PlayingCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayingCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DDFFED23D9D8E7004811BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7DDFFEF23D9D8E7004811BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				D7DD000123D9D8F3004811BC /* Supporting files */,
 				D7DDFFF123D9D8E7004811BC /* ViewController.swift */,
+				D7DD000623DA1E85004811BC /* PlayingCardView.swift */,
 				D7DDFFF323D9D8E7004811BC /* Main.storyboard */,
 				D7DDFFF623D9D8E8004811BC /* Assets.xcassets */,
 				D7DDFFFB23D9D8E8004811BC /* Info.plist */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7DDFFF223D9D8E7004811BC /* ViewController.swift in Sources */,
+				D7DD000723DA1E85004811BC /* PlayingCardView.swift in Sources */,
 				D7DDFFEE23D9D8E7004811BC /* AppDelegate.swift in Sources */,
 				D7DD000523D9EF1F004811BC /* PlayingCardDeck.swift in Sources */,
 				D7DD000323D9D905004811BC /* PlayingCard.swift in Sources */,
