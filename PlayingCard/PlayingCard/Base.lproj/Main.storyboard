@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,52 +13,110 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PlayingCard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lecture_8___Animation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-us-VVI" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="154" width="374" height="598"/>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGM-Ch-lKd" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="26" y="101" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="mfT-us-VVI" secondAttribute="height" multiplier="5:8" id="EHS-bK-n8f"/>
-                                    <constraint firstAttribute="width" priority="750" constant="800" id="j0o-69-TNX"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fO0-D6-onh" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="123" y="113" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fvi-No-XGd" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="249" y="56" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7W-gS-aIG" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="49" y="270" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y73-IC-FdZ" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="161" y="253" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4s-Aw-5Pe" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="270" y="204" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1EX-7h-E97" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="136" y="410" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xju-uv-QOG" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="264" y="360" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rKU-hT-Qd2" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="228" y="557" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LNa-TD-ej6" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="137" y="590" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gu4-iR-vpi" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="40" y="575" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHy-SS-5pF" customClass="PlayingCardView" customModule="Lecture_8___Animation" customModuleProvider="target">
+                                <rect key="frame" x="16" y="404" width="83" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.85076662447967877" green="0.66984983963453515" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="mfT-us-VVI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5tM-h1-PsM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mfT-us-VVI" secondAttribute="bottom" id="7Yy-Sz-jEA"/>
-                            <constraint firstItem="mfT-us-VVI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="OSa-Fx-d8y"/>
-                            <constraint firstItem="mfT-us-VVI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WA6-OH-52P"/>
-                            <constraint firstItem="mfT-us-VVI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Y72-kk-IXL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mfT-us-VVI" secondAttribute="trailing" constant="20" id="a24-UI-Y3j"/>
-                        </constraints>
+                        <color key="backgroundColor" cyan="0.03222370520234108" magenta="0.037519440054893494" yellow="0.3644370436668396" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="LwE-dX-DxX" appends="YES" id="ICO-px-Pe3"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="playingCardView" destination="mfT-us-VVI" id="aP9-OF-M8H"/>
+                        <outletCollection property="cardViews" destination="lGM-Ch-lKd" collectionClass="NSMutableArray" id="Nma-WD-DWg"/>
+                        <outletCollection property="cardViews" destination="fO0-D6-onh" collectionClass="NSMutableArray" id="XKj-6b-0rN"/>
+                        <outletCollection property="cardViews" destination="fvi-No-XGd" collectionClass="NSMutableArray" id="v0p-3r-yXk"/>
+                        <outletCollection property="cardViews" destination="I4s-Aw-5Pe" collectionClass="NSMutableArray" id="kgX-Ky-6B8"/>
+                        <outletCollection property="cardViews" destination="Y73-IC-FdZ" collectionClass="NSMutableArray" id="5SM-2j-Cnr"/>
+                        <outletCollection property="cardViews" destination="X7W-gS-aIG" collectionClass="NSMutableArray" id="Hje-oU-9HQ"/>
+                        <outletCollection property="cardViews" destination="xju-uv-QOG" collectionClass="NSMutableArray" id="t2f-hr-c0S"/>
+                        <outletCollection property="cardViews" destination="1EX-7h-E97" collectionClass="NSMutableArray" id="PIt-8s-X3Y"/>
+                        <outletCollection property="cardViews" destination="SHy-SS-5pF" collectionClass="NSMutableArray" id="6rV-Hb-ZGD"/>
+                        <outletCollection property="cardViews" destination="Gu4-iR-vpi" collectionClass="NSMutableArray" id="c1n-CL-uDW"/>
+                        <outletCollection property="cardViews" destination="LNa-TD-ej6" collectionClass="NSMutableArray" id="uGC-ds-vDB"/>
+                        <outletCollection property="cardViews" destination="rKU-hT-Qd2" collectionClass="NSMutableArray" id="Vf1-00-AZ2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="LwE-dX-DxX">
+                <tapGestureRecognizer id="suq-Zr-5Ty">
                     <connections>
-                        <action selector="flipCard:" destination="BYZ-38-t0r" id="8X0-RX-IHB"/>
+                        <action selector="flipCard:" destination="BYZ-38-t0r" id="oM7-nR-w8N"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="65.625"/>
+            <point key="canvasLocation" x="136.80000000000001" y="133.00492610837438"/>
         </scene>
     </scenes>
 </document>

@@ -2,42 +2,40 @@
 //  PlayingCardDeck.swift
 //  PlayingCard
 //
-//  Created by wtildestar on 23/01/2020.
-//  Copyright © 2020 wtildestar. All rights reserved.
+//  Created by Michel Deiman on 18/11/2017.
+//  Copyright © 2017 Michel Deiman. All rights reserved.
 //
 
 import Foundation
 
-struct PlayingCardDeck
-{
-    private(set) var cards = [PlayingCard]()
-    
-    init() {
-        for suit in PlayingCard.Suit.all {
-            for rank in PlayingCard.Rank.all {
-                cards.append(PlayingCard(suit: suit, rank: rank))
-            }
-        }
-    }
-    
-    mutating func draw() -> PlayingCard? {
-        if cards.count > 0 {
-            return cards.remove(at: cards.count.arc4random)
-        } else {
-            return nil
-        }
-    }
+struct PlayingCardDeck {
+	
+	private(set) var cards = [PlayingCard]()
+	
+	mutating func draw() -> PlayingCard? {
+		if cards.isEmpty { return nil }
+		return cards.remove(at: cards.count.arc4Random)
+	}
+	
+	init() {
+		for suit in PlayingCard.Suit.all {
+			for rank in PlayingCard.Rank.all {
+				cards.append(PlayingCard(suit: suit, rank: rank))
+			}
+		}
+	}
 }
 
 extension Int {
-    var arc4random: Int {
-        if self > 0 {
-            return Int(arc4random_uniform(UInt32(self)))
-        } else if self < 0 {
-            return -Int(arc4random_uniform(UInt32(self)))
-        } else {
-            return 0
-        }
-        
-    }
+	var arc4Random: Int {
+		switch self {
+		case 1...Int.max:
+			return Int(arc4random_uniform(UInt32(self)))
+		case -Int.max..<0:
+			return Int(arc4random_uniform(UInt32(self)))
+		default:
+			return 0
+		}
+		
+	}
 }
