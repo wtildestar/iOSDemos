@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Diagram View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DiagramViewController" customModule="OTUS_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="Ytk-Ep-CeA">
+                                <rect key="frame" x="0.0" y="256" width="414" height="385"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="lP4-Zv-vO7"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ubN-LY-c89"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="0Ux-eE-knG"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ytk-Ep-CeA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="212" id="CWZ-SE-tng"/>
+                            <constraint firstItem="Ytk-Ep-CeA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Tnq-hF-0rl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ytk-Ep-CeA" secondAttribute="trailing" id="W5H-Mo-Ic9"/>
+                            <constraint firstItem="Ytk-Ep-CeA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="z7O-Ya-UUp"/>
+                            <constraint firstItem="Ytk-Ep-CeA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zeg-qq-CIW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="Ytk-Ep-CeA" id="oI2-mN-Zq3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
+        </scene>
+    </scenes>
+</document>
