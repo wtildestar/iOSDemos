@@ -17,6 +17,7 @@
 		D72A844D23E0BDAF00F6073C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A844C23E0BDAF00F6073C /* Utilities.swift */; };
 		D72A844F23E1718500F6073C /* EmojiArtDocumentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A844E23E1718500F6073C /* EmojiArtDocumentTableViewController.swift */; };
 		D72A845123E1EE9C00F6073C /* EmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A845023E1EE9C00F6073C /* EmojiCollectionViewCell.swift */; };
+		D7B9A64423E312A9004D960C /* TextFieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B9A64323E312A9004D960C /* TextFieldCollectionViewCell.swift */; };
 		D7DCCAC723E25E23002C721E /* EmojiArtView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DCCAC623E25E23002C721E /* EmojiArtView+Gestures.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		D72A844C23E0BDAF00F6073C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D72A844E23E1718500F6073C /* EmojiArtDocumentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocumentTableViewController.swift; sourceTree = "<group>"; };
 		D72A845023E1EE9C00F6073C /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
+		D7B9A64323E312A9004D960C /* TextFieldCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionViewCell.swift; sourceTree = "<group>"; };
 		D7DCCAC623E25E23002C721E /* EmojiArtView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmojiArtView+Gestures.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				D72A845023E1EE9C00F6073C /* EmojiCollectionViewCell.swift */,
 				D72521C423E021B50080B265 /* EmojiArtView.swift */,
 				D7DCCAC623E25E23002C721E /* EmojiArtView+Gestures.swift */,
+				D7B9A64323E312A9004D960C /* TextFieldCollectionViewCell.swift */,
 				D72A844C23E0BDAF00F6073C /* Utilities.swift */,
 				D72521B823E0212B0080B265 /* LaunchScreen.storyboard */,
 				D72521BB23E0212B0080B265 /* Info.plist */,
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7B9A64423E312A9004D960C /* TextFieldCollectionViewCell.swift in Sources */,
 				D72A845123E1EE9C00F6073C /* EmojiCollectionViewCell.swift in Sources */,
 				D7DCCAC723E25E23002C721E /* EmojiArtView+Gestures.swift in Sources */,
 				D72521AE23E021280080B265 /* AppDelegate.swift in Sources */,
