@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Yw-8P-RSV">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="E4p-hu-Y0o">
+            <objects>
+                <viewController id="4Yw-8P-RSV" customClass="MenuViewController" customModule="Cards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sjy-Cd-sWO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43D-dB-48u">
+                                <rect key="frame" x="128" y="422" width="118" height="60"/>
+                                <color key="backgroundColor" red="0.83360321500000001" green="0.83360321500000001" blue="0.83360321500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="LTJ-G8-Tv8"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="118" id="kgi-gF-xto">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="102"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="10"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="fRM-zi-kV7" kind="show" identifier="playSegue" id="JJg-uW-e3f"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cards" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzr-tY-Kt7">
+                                <rect key="frame" x="124" y="76" width="127" height="58"/>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gzr-tY-Kt7" firstAttribute="top" secondItem="KGz-3x-YIf" secondAttribute="top" constant="76" id="LKY-m8-k90">
+                                <variation key="heightClass=compact-widthClass=compact" constant="62"/>
+                            </constraint>
+                            <constraint firstItem="KGz-3x-YIf" firstAttribute="trailing" secondItem="43D-dB-48u" secondAttribute="trailing" constant="129" id="Ztx-gd-LfU">
+                                <variation key="heightClass=compact-widthClass=compact" constant="283"/>
+                            </constraint>
+                            <constraint firstItem="43D-dB-48u" firstAttribute="leading" secondItem="KGz-3x-YIf" secondAttribute="leading" constant="128" id="iOT-9v-aEi">
+                                <variation key="heightClass=compact-widthClass=compact" constant="282"/>
+                            </constraint>
+                            <constraint firstItem="gzr-tY-Kt7" firstAttribute="leading" secondItem="KGz-3x-YIf" secondAttribute="leading" constant="124" id="nsD-Or-bB5">
+                                <variation key="heightClass=compact-widthClass=compact" constant="255"/>
+                            </constraint>
+                            <constraint firstItem="KGz-3x-YIf" firstAttribute="bottom" secondItem="43D-dB-48u" secondAttribute="bottom" constant="185" id="utS-nH-h2J">
+                                <variation key="heightClass=compact-widthClass=compact" constant="81"/>
+                            </constraint>
+                            <constraint firstItem="KGz-3x-YIf" firstAttribute="trailing" secondItem="gzr-tY-Kt7" secondAttribute="trailing" constant="124" id="vtq-Kv-zsa">
+                                <variation key="heightClass=compact-widthClass=compact" constant="255"/>
+                            </constraint>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KGz-3x-YIf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jmS-Fg-yDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1063.7181409295354" y="63.200000000000003"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FLU-go-qU6">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="fRM-zi-kV7" customClass="ViewController" customModule="Cards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nmn-cU-4cu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsO-1D-sYV" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="54" y="90" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHq-IK-qy5" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="167" y="90" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUL-aR-1KT" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="281" y="90" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oWa-qZ-0H7" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="53" y="248" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZDb-sg-tOM" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="166" y="248" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iyA-1O-Z85" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="280" y="248" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lqq-tc-7jt" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="53" y="403" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7UI-mt-f51" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="166" y="403" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Sy-PQ-zbL" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="280" y="403" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcl-K7-lC3" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="53" y="559" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30m-S0-ast" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="166" y="559" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uim-hX-6Nz" customClass="PlayingCardView" customModule="Cards" customModuleProvider="target">
+                                <rect key="frame" x="280" y="559" width="81" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rg5-Ja-8jc">
+                                <rect key="frame" x="281" y="0.0" width="74" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="57" id="Kr7-vI-0Vp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="60"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="rg5-Ja-8jc" firstAttribute="top" secondItem="kcD-xh-jjz" secondAttribute="top" id="B55-Aa-y3U"/>
+                            <constraint firstItem="rg5-Ja-8jc" firstAttribute="leading" secondItem="kcD-xh-jjz" secondAttribute="leading" constant="281" id="D2t-An-VZC">
+                                <variation key="heightClass=compact-widthClass=compact" constant="537"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="660"/>
+                            </constraint>
+                            <constraint firstItem="kcD-xh-jjz" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="rg5-Ja-8jc" secondAttribute="trailing" constant="20" id="oGa-TU-0mQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kcD-xh-jjz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ajv-cb-Kag"/>
+                    <connections>
+                        <outlet property="timeLabel" destination="rg5-Ja-8jc" id="s3o-ze-XO5"/>
+                        <outletCollection property="cardViews" destination="fsO-1D-sYV" collectionClass="NSMutableArray" id="xnH-ix-qTh"/>
+                        <outletCollection property="cardViews" destination="JHq-IK-qy5" collectionClass="NSMutableArray" id="tlp-yX-Xh8"/>
+                        <outletCollection property="cardViews" destination="eUL-aR-1KT" collectionClass="NSMutableArray" id="QJa-aD-K87"/>
+                        <outletCollection property="cardViews" destination="oWa-qZ-0H7" collectionClass="NSMutableArray" id="aFb-vJ-TWa"/>
+                        <outletCollection property="cardViews" destination="ZDb-sg-tOM" collectionClass="NSMutableArray" id="Koj-xm-ghv"/>
+                        <outletCollection property="cardViews" destination="iyA-1O-Z85" collectionClass="NSMutableArray" id="5Af-w7-8wG"/>
+                        <outletCollection property="cardViews" destination="Lqq-tc-7jt" collectionClass="NSMutableArray" id="9fc-Td-Dbm"/>
+                        <outletCollection property="cardViews" destination="7UI-mt-f51" collectionClass="NSMutableArray" id="cWX-uV-AX3"/>
+                        <outletCollection property="cardViews" destination="2Sy-PQ-zbL" collectionClass="NSMutableArray" id="MB7-ut-91V"/>
+                        <outletCollection property="cardViews" destination="bcl-K7-lC3" collectionClass="NSMutableArray" id="p4E-TY-Vnj"/>
+                        <outletCollection property="cardViews" destination="30m-S0-ast" collectionClass="NSMutableArray" id="wpe-Qo-xQa"/>
+                        <outletCollection property="cardViews" destination="Uim-hX-6Nz" collectionClass="NSMutableArray" id="M7a-kM-VwU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gps-Mn-y62" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GaI-AR-aem"/>
+            </objects>
+            <point key="canvasLocation" x="-229.83508245877064" y="64.799999999999997"/>
+        </scene>
+    </scenes>
+</document>
