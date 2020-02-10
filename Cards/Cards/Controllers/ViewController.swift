@@ -22,18 +22,26 @@ struct Constants {
 
 
 class ViewController: UIViewController {
-
+    
     let creationDate = Date()
+    var cards = [PlayingCard]()
     
     @IBOutlet weak var timeLabel: UILabel!
     
-    var seconds = 30
+    var seconds = 60
     var timer = Timer()
     var isTimerRunning = false
     
     private var deck = PlayingCardDeck()
     
-    @IBOutlet var cardViews: [PlayingCardView]!
+    @IBOutlet var cardViews: [PlayingCardView]! {
+        didSet {
+            if self.cardViews.count == 0 {
+                self.dismiss(animated: true, completion: nil)
+                print(cardViews.count)
+            }
+        }
+    }
     
     lazy var animator = UIDynamicAnimator(referenceView: view)
     
@@ -42,7 +50,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var cards = [PlayingCard]()
+        
         for _ in 1...((cardViews.count + 1)/2) {
             let card = deck.draw()!
             cards += [card, card]
@@ -56,8 +64,12 @@ class ViewController: UIViewController {
             // добавление поведения анимации
             cardBehavior.addItem(cardView)
         }
+        if self.cardViews.count == 0 {
+           self.dismiss(animated: true, completion: nil)
+       }
         runTimer()
     }
+    
     
     func runTimer() {
          timer = Timer.scheduledTimer(timeInterval: 1,
@@ -75,12 +87,13 @@ class ViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         } else {
              seconds -= 1
-//             timeLabel.text = timeString(time: TimeInterval(seconds))
             timeLabel.text = "\(seconds)" //This will update the label.
+            print("cardViews.count: ", cardViews.count)
+            print("cards.count:  ", cards.count)
         }
     }
     
-    // берем карты лицевой вверх
+    // карты лицевой вверх
     private var faceUpCardViews: [PlayingCardView] {
         return cardViews.filter { $0.isFaceUp && !$0.isHidden && $0.transform != CGAffineTransform.identity.scaledBy(x: 3.0, y: 3.0) && $0.alpha == 1 }
     }
@@ -116,9 +129,10 @@ class ViewController: UIViewController {
                                 options: [],
                                 animations: {
                                     cardsToAnimate.forEach {
-                                        $0.transform = CGAffineTransform.identity.scaledBy(x: 3.0, y: 3.0)
+                                        $0.transform = CGAffineTransform.identity.scaledBy(x: 2.0, y: 2.0)
                                     }
-                            }) { (position) in
+                            })
+                            { (position) in
                                 UIViewPropertyAnimator.runningPropertyAnimator(
                                     withDuration: 0.75,
                                     delay: 0,
@@ -129,13 +143,37 @@ class ViewController: UIViewController {
                                             $0.alpha = 0
                                         }
                                 }) { (position) in
-                                    cardsToAnimate.forEach {
-                                        $0.isHidden = true
-                                        $0.alpha = 1
-                                        $0.transform = .identity
+                                    self.cardViews.forEach { card in
+//                                        card.removeFromSuperview()
+                                        
                                     }
                                 }
+//                                { (position) in
+//                                    cardsToAnimate.forEach {
+//                                        $0.isHidden = true
+//                                        $0.alpha = 1
+//                                        $0.transform = .identity
+//                                    }
+//                                }
                             }
+//                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                                print("queue 0.2")
+//                                self.cardViews.removeLast()
+//                                let cardViewsSlice = self.cardViews.suffix(2)
+//                                print(cardViewsSlice)
+//                                let range = self.cards.index(self.cards.endIndex, offsetBy: -2) ..< self.cards.endIndex
+//                                var arraySlice = self.cards[range]
+//                                arraySlice.removeAll()
+//                                print(arraySlice)
+//                                cardViewsSlice.removeAll()
+//                                self.cardViews.removeLast()
+//                                self.cardViews.removeLast()
+                                
+//                                self.cardViews.remove(at: index - 2)
+//                                print(self.cards.count)
+//                                print(self.faceUpCardViewsMatch)
+                            print(self.faceUpCardViews.count)
+//                            }
                             
                         } else if cardsToAnimate.count == 2 {
                             if chosenCardView == self.lastChosenCardView {
@@ -153,9 +191,11 @@ class ViewController: UIViewController {
                                     )
                                 }
                             }
-                        } else {
-                            if !chosenCardView.isFaceUp {
+                        } else if !chosenCardView.isFaceUp {
                                 self.cardBehavior.addItem(chosenCardView)
+                        } else {
+                            if self.cardViews.count == 0 {
+                                self.dismiss(animated: true, completion: nil)
                             }
                         }
                 }

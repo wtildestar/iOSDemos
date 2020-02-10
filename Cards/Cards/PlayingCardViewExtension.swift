@@ -16,7 +16,6 @@ extension PlayingCardView {
 
 extension PlayingCardView {
     
-    @available(iOS 10.0, *)
     func cardsMatchAnimation(completion: (() -> Swift.Void)? = nil)  {
         let animator = UIViewPropertyAnimator(
             duration: Constants.matchCardAnimationDuration,
