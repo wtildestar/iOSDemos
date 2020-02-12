@@ -9,6 +9,8 @@
 import UIKit
 
 class CardBehavior: UIDynamicBehavior {
+    
+    // MARK: - Properties
 
     lazy var collisionBehavior: UICollisionBehavior = {
         let behavior = UICollisionBehavior()
@@ -23,6 +25,8 @@ class CardBehavior: UIDynamicBehavior {
         behavior.resistance = Constants.behaviorResistance
         return behavior
     }()
+    
+    // MARK: - Methods
     
     private func push(_ item: UIDynamicItem) {
         let push = UIPushBehavior(items: [item], mode: .instantaneous)

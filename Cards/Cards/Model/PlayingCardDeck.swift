@@ -10,7 +10,11 @@ import Foundation
 
 struct PlayingCardDeck {
     
+    // MARK: - Properties
+    
     private(set) var cards = [PlayingCard]()
+    
+    // MARK: - Methods
     
     mutating func draw() -> PlayingCard? {
         if cards.isEmpty { return nil }

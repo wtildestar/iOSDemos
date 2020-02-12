@@ -10,25 +10,25 @@ import UIKit
 
 class MenuViewController: UIViewController {
 
+    // MARK: - Properties
+    
     private var webKitURL: String?
+    
+    // MARK: - Actions
     
     @IBAction func playButton(_ sender: UIButton) {
         performSegue(withIdentifier: "playSegue", sender: self)
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    @IBAction func showWebKit(_ sender: Any) {
+        presenting()
     }
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-////        let webKitViewController = segue.destination as! WebKitViewController
-//////        WebKitViewController.navigationTitle.title = courseName
-////
-////        if let url = webKitURL {
-////            webKitViewController.webKitURL = url
-////        }
-//    }
-
+    
+    private func presenting() {
+       let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let webKitVC = storyBoard.instantiateViewController(withIdentifier: "WebKit") as! WebKitViewController
+       self.present(webKitVC, animated:true, completion:nil)
+    }
+    
 }

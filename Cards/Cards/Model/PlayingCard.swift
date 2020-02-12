@@ -10,9 +10,13 @@ import Foundation
 
 struct PlayingCard: CustomStringConvertible {
     
+    // MARK: - Properties
+    
     var suit: Suit
     var rank: Rank
-
+    
+    var description: String { return "\(rank) \(suit)" }
+    
     enum Suit: String, CustomStringConvertible {
         case spades = "♠️"
         case hearts = "♥️"
@@ -60,8 +64,6 @@ struct PlayingCard: CustomStringConvertible {
             
         }
     }
-    
-    var description: String { return "\(rank) \(suit)" }
     
 }
 

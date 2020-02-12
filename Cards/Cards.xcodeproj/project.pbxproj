@@ -21,6 +21,8 @@
 		D7C6ECF723F05F57008C624C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C6ECF623F05F56008C624C /* SceneDelegate.swift */; };
 		D7C6ECF923F07836008C624C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7C6ECF823F07836008C624C /* GoogleService-Info.plist */; };
 		D7C6ECFE23F0C09D008C624C /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C6ECFD23F0C09D008C624C /* WebKitViewController.swift */; };
+		D7C6ED0023F1C30A008C624C /* YourScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C6ECFF23F1C30A008C624C /* YourScoreViewController.swift */; };
+		D7F59C7223F3C31800F7E9E7 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D7F59C7123F3C31800F7E9E7 /* index.html */; };
 		F8F07C0EF7A77C43704C725B /* Pods_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CA307D767D3DCDCE709297 /* Pods_Cards.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		D7C6ECF623F05F56008C624C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D7C6ECF823F07836008C624C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7C6ECFD23F0C09D008C624C /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
+		D7C6ECFF23F1C30A008C624C /* YourScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourScoreViewController.swift; sourceTree = "<group>"; };
+		D7F59C7123F3C31800F7E9E7 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = ../../../../Downloads/index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +84,6 @@
 			children = (
 				D7C6ECF623F05F56008C624C /* SceneDelegate.swift */,
 				D7B7242823EF65BF00B90E77 /* AppDelegate.swift */,
-				D7B7242E23EF65BF00B90E77 /* Main.storyboard */,
 				D7B7243123EF65C000B90E77 /* Assets.xcassets */,
 				D7B7243323EF65C000B90E77 /* LaunchScreen.storyboard */,
 				D7B7243623EF65C000B90E77 /* Info.plist */,
@@ -95,6 +98,7 @@
 				D7B7242C23EF65BF00B90E77 /* ViewController.swift */,
 				D776CD4223F01F2E007DAB2B /* MenuViewController.swift */,
 				D7C6ECFD23F0C09D008C624C /* WebKitViewController.swift */,
+				D7C6ECFF23F1C30A008C624C /* YourScoreViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -120,15 +124,33 @@
 		D7B7242723EF65BF00B90E77 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				D7F59C7123F3C31800F7E9E7 /* index.html */,
+				D7F59C7323F4395D00F7E9E7 /* Model */,
+				D7F59C7423F4397300F7E9E7 /* View */,
 				D776CD4423F0529D007DAB2B /* Controllers */,
-				D7B7243C23EF665000B90E77 /* PlayingCardViewExtension.swift */,
-				D7B7243E23EF666900B90E77 /* PlayingCardView.swift */,
-				D7B7244023EF667800B90E77 /* PlayingCard.swift */,
-				D7B7244223EF668C00B90E77 /* PlayingCardDeck.swift */,
-				D7B7244423EF66AC00B90E77 /* CardBehavior.swift */,
 				D776CD3F23EF6B87007DAB2B /* Supporting files */,
 			);
 			path = Cards;
+			sourceTree = "<group>";
+		};
+		D7F59C7323F4395D00F7E9E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7B7244023EF667800B90E77 /* PlayingCard.swift */,
+				D7B7244223EF668C00B90E77 /* PlayingCardDeck.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D7F59C7423F4397300F7E9E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7B7243E23EF666900B90E77 /* PlayingCardView.swift */,
+				D7B7243C23EF665000B90E77 /* PlayingCardViewExtension.swift */,
+				D7B7244423EF66AC00B90E77 /* CardBehavior.swift */,
+				D7B7242E23EF65BF00B90E77 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F59C7223F3C31800F7E9E7 /* index.html in Resources */,
 				D7B7243523EF65C000B90E77 /* LaunchScreen.storyboard in Resources */,
 				D7C6ECF923F07836008C624C /* GoogleService-Info.plist in Resources */,
 				D7B7243223EF65C000B90E77 /* Assets.xcassets in Resources */,
@@ -247,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C6ED0023F1C30A008C624C /* YourScoreViewController.swift in Sources */,
 				D7B7242D23EF65BF00B90E77 /* ViewController.swift in Sources */,
 				D776CD4323F01F2E007DAB2B /* MenuViewController.swift in Sources */,
 				D7C6ECF723F05F57008C624C /* SceneDelegate.swift in Sources */,

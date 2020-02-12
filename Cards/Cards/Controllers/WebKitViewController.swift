@@ -9,26 +9,58 @@
 import UIKit
 import WebKit
 
-class WebKitViewController: UIViewController {
-    // MARK: Properties
-    @IBOutlet weak var webView: WKWebView!
+class WebKitViewController: UIViewController, WKNavigationDelegate {
     
+    // MARK: - Outlets
+
+    @IBOutlet var webView: UIWebView!
+    
+    // MARK: - Actions
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    var webKitURL: String? = "https://google.com"
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        guard
-            let webKitURL = webKitURL,
-            let url = URL(string: webKitURL)
-            else { return }
-        
+        let url = URL(string: "https://google.com")!
         let request = URLRequest(url: url)
-        webView.load(request)
+        webView.loadRequest(request)
+
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if #available(iOS 11, *) {
+            let dataStore = WKWebsiteDataStore.default()
+            dataStore.httpCookieStore.getAllCookies({ (cookies) in
+                print(cookies)
+            })
+        } else {
+            guard let cookies = HTTPCookieStorage.shared.cookies else {
+                return
+            }
+            print(cookies)
+        }
+    }
+    
+    
+    // MARK: - Methods
+    
+    public static func storyboardInstance() -> WebKitViewController? {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "WebKit") as? WebKitViewController
+    }
+    
+}
+    
+extension WKWebView {
+    func load(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            let request = URLRequest(url: url)
+            load(request)
+        }
+    }
 }
