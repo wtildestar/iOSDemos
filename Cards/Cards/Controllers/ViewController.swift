@@ -28,7 +28,8 @@ class ViewController: UIViewController {
     
     var cardsCount = 0 {
         didSet {
-            if self.cardsCount == 2 {
+            if self.cardsCount == 12 {
+                timer.invalidate()
                 presenting()
              }
         }
@@ -48,8 +49,8 @@ class ViewController: UIViewController {
     
     private func presenting() {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let yourScoreVC = storyBoard.instantiateViewController(withIdentifier: "YourScore") as! YourScoreViewController
-        yourScoreVC.score = self.timeLabel.text!
+        let yourScoreVC = storyBoard.instantiateViewController(withIdentifier: "YourTime") as! YourTimeViewController
+        yourScoreVC.time = self.timeLabel.text!
         self.present(yourScoreVC, animated:true, completion:nil)
     }
     
@@ -82,12 +83,18 @@ class ViewController: UIViewController {
     @objc func updateTimer() {
         if seconds < 1 {
              timer.invalidate()
-            print("timer end")
-            self.dismiss(animated: true, completion: nil)
+            presentingLoseVC()
         } else {
              seconds -= 1
             timeLabel.text = "\(seconds)"
+            print(seconds)
         }
+    }
+    
+    private func presentingLoseVC() {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let loseVC = storyBoard.instantiateViewController(withIdentifier: "LoseVC") as! LoseViewController
+        self.present(loseVC, animated:true, completion:nil)
     }
     
     // карты лицевой вверх

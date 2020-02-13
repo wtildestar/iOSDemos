@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D73B73C823F5410600EA6FA3 /* LoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B73C723F5410600EA6FA3 /* LoseViewController.swift */; };
 		D776CD4323F01F2E007DAB2B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776CD4223F01F2E007DAB2B /* MenuViewController.swift */; };
 		D7B7242923EF65BF00B90E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B7242823EF65BF00B90E77 /* AppDelegate.swift */; };
 		D7B7242D23EF65BF00B90E77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B7242C23EF65BF00B90E77 /* ViewController.swift */; };
@@ -21,8 +22,7 @@
 		D7C6ECF723F05F57008C624C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C6ECF623F05F56008C624C /* SceneDelegate.swift */; };
 		D7C6ECF923F07836008C624C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7C6ECF823F07836008C624C /* GoogleService-Info.plist */; };
 		D7C6ECFE23F0C09D008C624C /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C6ECFD23F0C09D008C624C /* WebKitViewController.swift */; };
-		D7C6ED0023F1C30A008C624C /* YourScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C6ECFF23F1C30A008C624C /* YourScoreViewController.swift */; };
-		D7F59C7223F3C31800F7E9E7 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D7F59C7123F3C31800F7E9E7 /* index.html */; };
+		D7C6ED0023F1C30A008C624C /* YourTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C6ECFF23F1C30A008C624C /* YourTimeViewController.swift */; };
 		F8F07C0EF7A77C43704C725B /* Pods_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CA307D767D3DCDCE709297 /* Pods_Cards.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +30,7 @@
 		485DE467ABC5F88995886EA0 /* Pods-Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cards.debug.xcconfig"; path = "Target Support Files/Pods-Cards/Pods-Cards.debug.xcconfig"; sourceTree = "<group>"; };
 		65CA307D767D3DCDCE709297 /* Pods_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A4AA2CFF34B679B9124F40 /* Pods-Cards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cards.release.xcconfig"; path = "Target Support Files/Pods-Cards/Pods-Cards.release.xcconfig"; sourceTree = "<group>"; };
+		D73B73C723F5410600EA6FA3 /* LoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseViewController.swift; sourceTree = "<group>"; };
 		D776CD4223F01F2E007DAB2B /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D7B7242523EF65BF00B90E77 /* Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B7242823EF65BF00B90E77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,8 +47,7 @@
 		D7C6ECF623F05F56008C624C /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D7C6ECF823F07836008C624C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7C6ECFD23F0C09D008C624C /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
-		D7C6ECFF23F1C30A008C624C /* YourScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourScoreViewController.swift; sourceTree = "<group>"; };
-		D7F59C7123F3C31800F7E9E7 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = ../../../../Downloads/index.html; sourceTree = "<group>"; };
+		D7C6ECFF23F1C30A008C624C /* YourTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTimeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,8 @@
 				D7B7242C23EF65BF00B90E77 /* ViewController.swift */,
 				D776CD4223F01F2E007DAB2B /* MenuViewController.swift */,
 				D7C6ECFD23F0C09D008C624C /* WebKitViewController.swift */,
-				D7C6ECFF23F1C30A008C624C /* YourScoreViewController.swift */,
+				D7C6ECFF23F1C30A008C624C /* YourTimeViewController.swift */,
+				D73B73C723F5410600EA6FA3 /* LoseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -124,7 +125,6 @@
 		D7B7242723EF65BF00B90E77 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				D7F59C7123F3C31800F7E9E7 /* index.html */,
 				D7F59C7323F4395D00F7E9E7 /* Model */,
 				D7F59C7423F4397300F7E9E7 /* View */,
 				D776CD4423F0529D007DAB2B /* Controllers */,
@@ -213,7 +213,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7F59C7223F3C31800F7E9E7 /* index.html in Resources */,
 				D7B7243523EF65C000B90E77 /* LaunchScreen.storyboard in Resources */,
 				D7C6ECF923F07836008C624C /* GoogleService-Info.plist in Resources */,
 				D7B7243223EF65C000B90E77 /* Assets.xcassets in Resources */,
@@ -270,11 +269,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7C6ED0023F1C30A008C624C /* YourScoreViewController.swift in Sources */,
+				D7C6ED0023F1C30A008C624C /* YourTimeViewController.swift in Sources */,
 				D7B7242D23EF65BF00B90E77 /* ViewController.swift in Sources */,
 				D776CD4323F01F2E007DAB2B /* MenuViewController.swift in Sources */,
 				D7C6ECF723F05F57008C624C /* SceneDelegate.swift in Sources */,
 				D7B7242923EF65BF00B90E77 /* AppDelegate.swift in Sources */,
+				D73B73C823F5410600EA6FA3 /* LoseViewController.swift in Sources */,
 				D7B7243F23EF666900B90E77 /* PlayingCardView.swift in Sources */,
 				D7B7244123EF667800B90E77 /* PlayingCard.swift in Sources */,
 				D7B7243D23EF665000B90E77 /* PlayingCardViewExtension.swift in Sources */,

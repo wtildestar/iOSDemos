@@ -211,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfk-QO-M8m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-130.40000000000001" y="832.53373313343332"/>
+            <point key="canvasLocation" x="-130.88455772113943" y="831.20000000000005"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="FLU-go-qU6">
@@ -304,6 +304,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kcD-xh-jjz"/>
                     </view>
+                    <navigationItem key="navigationItem" id="eYy-AT-3e8"/>
                     <connections>
                         <outlet property="timeLabel" destination="rg5-Ja-8jc" id="s3o-ze-XO5"/>
                         <outletCollection property="cardViews" destination="fsO-1D-sYV" collectionClass="NSMutableArray" id="xnH-ix-qTh"/>
@@ -325,31 +326,156 @@
             </objects>
             <point key="canvasLocation" x="707.8125" y="64.128843338213755"/>
         </scene>
+        <!--Lose-->
+        <scene sceneID="Qyl-E2-NxE">
+            <objects>
+                <viewController storyboardIdentifier="LoseVC" modalPresentationStyle="fullScreen" id="uQ8-rv-fhU" userLabel="Lose" customClass="LoseViewController" customModule="Cards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hc8-UQ-aT8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="108" translatesAutoresizingMaskIntoConstraints="NO" id="wsj-Ii-izT">
+                                <rect key="frame" x="79" y="231.5" width="217" height="204"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time is over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fU-od-HJj">
+                                        <rect key="frame" x="0.0" y="0.0" width="217" height="56"/>
+                                        <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="e6P-cM-tu3">
+                                        <rect key="frame" x="24" y="164" width="169" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZS6-Gu-PzK">
+                                                <rect key="frame" x="0.0" y="1" width="40" height="37.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="VKz-d2-VDi"/>
+                                                    <constraint firstAttribute="width" constant="80" id="aVP-uR-Lhi"/>
+                                                    <constraint firstAttribute="width" constant="40" id="wGd-FM-fhF"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" backgroundImage="arrowshape.turn.up.left" catalog="system"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="wGd-FM-fhF"/>
+                                                        <exclude reference="aVP-uR-Lhi"/>
+                                                        <exclude reference="VKz-d2-VDi"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="VKz-d2-VDi"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="wGd-FM-fhF"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="aVP-uR-Lhi"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <segue destination="4Yw-8P-RSV" kind="show" id="GuZ-Je-iRW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msv-i8-8Tb">
+                                                <rect key="frame" x="129" y="-1.5" width="40" height="41"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="KrX-9z-M2S"/>
+                                                    <constraint firstAttribute="width" constant="80" id="NIA-VY-zs2"/>
+                                                    <constraint firstAttribute="width" constant="40" id="aIu-RV-hK2"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" backgroundImage="gobackward" catalog="system"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="KrX-9z-M2S"/>
+                                                        <exclude reference="NIA-VY-zs2"/>
+                                                        <exclude reference="aIu-RV-hK2"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="KrX-9z-M2S"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="aIu-RV-hK2"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="NIA-VY-zs2"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <segue destination="fRM-zi-kV7" kind="show" id="nbq-Ug-PAf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="EaG-hL-XdM"/>
+                                            <constraint firstAttribute="height" constant="40" id="IzT-03-YKW">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                            </constraint>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="EaG-hL-XdM"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=compact" spacing="4">
+                                            <mask key="constraints">
+                                                <include reference="EaG-hL-XdM"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact" spacing="89"/>
+                                        <variation key="heightClass=regular-widthClass=regular" spacing="148"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wsj-Ii-izT" firstAttribute="centerX" secondItem="gzX-rt-rFG" secondAttribute="centerX" id="PMR-WR-eDH"/>
+                            <constraint firstItem="wsj-Ii-izT" firstAttribute="centerY" secondItem="gzX-rt-rFG" secondAttribute="centerY" id="eoq-kL-aCJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gzX-rt-rFG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="guu-hy-Zbu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-129" y="-779"/>
+        </scene>
         <!--Your score-->
         <scene sceneID="wqg-T7-Lpc">
             <objects>
-                <viewController storyboardIdentifier="YourScore" title="Your score" modalPresentationStyle="fullScreen" id="BHe-YG-Vnj" customClass="YourScoreViewController" customModule="Cards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YourTime" title="Your score" modalPresentationStyle="fullScreen" id="BHe-YG-Vnj" customClass="YourTimeViewController" customModule="Cards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aHz-P8-lUK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vlI-k1-xO1">
-                                <rect key="frame" x="94" y="166.5" width="187.5" height="334"/>
+                                <rect key="frame" x="100.5" y="166.5" width="174" height="334"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXf-5o-gy1">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="56"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXf-5o-gy1">
+                                        <rect key="frame" x="0.0" y="0.0" width="174" height="56"/>
                                         <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtl-L8-0bh">
-                                        <rect key="frame" x="82" y="147" width="23" height="56"/>
+                                        <rect key="frame" x="75.5" y="147" width="23" height="56"/>
                                         <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="DhP-27-Fm3">
-                                        <rect key="frame" x="9" y="294" width="169" height="40"/>
+                                        <rect key="frame" x="2.5" y="294" width="169" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJw-IM-IKa">
                                                 <rect key="frame" x="0.0" y="1" width="40" height="37.5"/>
@@ -424,7 +550,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="G52-x7-C88"/>
-                                            <constraint firstAttribute="height" constant="80" id="Ym3-8Z-Hlc">
+                                            <constraint firstAttribute="height" constant="40" id="Ym3-8Z-Hlc">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                             </constraint>
                                         </constraints>
@@ -470,12 +596,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="5Nj-5q-zUR"/>
                     <connections>
-                        <outlet property="yourScoreLabel" destination="dtl-L8-0bh" id="YlI-eU-o0P"/>
+                        <outlet property="yourTimeLabel" destination="dtl-L8-0bh" id="YlI-eU-o0P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMt-td-Cpq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="275.9765625" y="-772.62079062957537"/>
+            <point key="canvasLocation" x="706" y="-779"/>
         </scene>
     </scenes>
     <resources>
@@ -485,6 +611,7 @@
         <image name="logo" width="320" height="160"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BiY-EN-7Du"/>
+        <segue reference="nbq-Ug-PAf"/>
+        <segue reference="GuZ-Je-iRW"/>
     </inferredMetricsTieBreakers>
 </document>
