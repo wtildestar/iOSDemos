@@ -44,7 +44,12 @@ class SearchVC: UIViewController {
     }
     
     @objc func pushFollowerListVC() {
-        guard isUsernameEntered else { return }
+        guard isUsernameEntered else {
+            presentGHAlertOnMainThread(title: "Empty username", message: "Please enter a username. We need to know who to look for 😱", buttonTitle: "Ok")
+            
+            return
+            
+        }
         let followerListVC = FollowerListVC()
         followerListVC.username = usernameTextField.text
         followerListVC.title    = usernameTextField.text
@@ -62,7 +67,7 @@ class SearchVC: UIViewController {
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.heightAnchor.constraint(equalToConstant: 200),
-            logoImageView.widthAnchor.constraint(equalToConstant: 200),
+            logoImageView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
     

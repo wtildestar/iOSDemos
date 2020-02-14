@@ -18,6 +18,10 @@
 		D73B73D123F5B1C900EA6FA3 /* GHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B73D023F5B1C900EA6FA3 /* GHButton.swift */; };
 		D73B73D323F5BC9900EA6FA3 /* GHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B73D223F5BC9900EA6FA3 /* GHTextField.swift */; };
 		D776BC4123F5E5A7003AA0BF /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776BC4023F5E5A7003AA0BF /* FollowerListVC.swift */; };
+		D776BC4323F5F847003AA0BF /* GHTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776BC4223F5F847003AA0BF /* GHTitleLabel.swift */; };
+		D776BC4523F5FD68003AA0BF /* GHBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776BC4423F5FD68003AA0BF /* GHBodyLabel.swift */; };
+		D776BC4723F60233003AA0BF /* GHAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776BC4623F60233003AA0BF /* GHAlertVC.swift */; };
+		D776BC4923F62614003AA0BF /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D776BC4823F62614003AA0BF /* UIViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		D73B73D023F5B1C900EA6FA3 /* GHButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHButton.swift; sourceTree = "<group>"; };
 		D73B73D223F5BC9900EA6FA3 /* GHTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTextField.swift; sourceTree = "<group>"; };
 		D776BC4023F5E5A7003AA0BF /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
+		D776BC4223F5F847003AA0BF /* GHTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTitleLabel.swift; sourceTree = "<group>"; };
+		D776BC4423F5FD68003AA0BF /* GHBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHBodyLabel.swift; sourceTree = "<group>"; };
+		D776BC4623F60233003AA0BF /* GHAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHAlertVC.swift; sourceTree = "<group>"; };
+		D776BC4823F62614003AA0BF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,8 @@
 				D73B73CC23F5A3F900EA6FA3 /* FavoritesListVC.swift */,
 				D73B73CD23F5A3F900EA6FA3 /* FavoritesListVC.xib */,
 				D7262CE823EC78D100D2DBD6 /* ViewController.swift */,
+				D776BC4623F60233003AA0BF /* GHAlertVC.swift */,
+				D776BC4823F62614003AA0BF /* UIViewController+Ext.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -90,6 +100,8 @@
 			children = (
 				D73B73D023F5B1C900EA6FA3 /* GHButton.swift */,
 				D73B73D223F5BC9900EA6FA3 /* GHTextField.swift */,
+				D776BC4223F5F847003AA0BF /* GHTitleLabel.swift */,
+				D776BC4423F5FD68003AA0BF /* GHBodyLabel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -177,14 +189,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D776BC4323F5F847003AA0BF /* GHTitleLabel.swift in Sources */,
 				D73B73D123F5B1C900EA6FA3 /* GHButton.swift in Sources */,
+				D776BC4923F62614003AA0BF /* UIViewController+Ext.swift in Sources */,
 				D73B73CA23F5A30F00EA6FA3 /* SearchVC.swift in Sources */,
 				D7262CE923EC78D100D2DBD6 /* ViewController.swift in Sources */,
 				D73B73D323F5BC9900EA6FA3 /* GHTextField.swift in Sources */,
 				D73B73CE23F5A3F900EA6FA3 /* FavoritesListVC.swift in Sources */,
+				D776BC4723F60233003AA0BF /* GHAlertVC.swift in Sources */,
 				D7262CE523EC78D100D2DBD6 /* AppDelegate.swift in Sources */,
 				D776BC4123F5E5A7003AA0BF /* FollowerListVC.swift in Sources */,
 				D7262CE723EC78D100D2DBD6 /* SceneDelegate.swift in Sources */,
+				D776BC4523F5FD68003AA0BF /* GHBodyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
