@@ -29,6 +29,7 @@
 		D7E0D61823F8468F0093AB72 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E0D61723F8468F0093AB72 /* FollowerCell.swift */; };
 		D7E0D61A23F84B970093AB72 /* GHAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E0D61923F84B970093AB72 /* GHAvatarImageView.swift */; };
 		D7E0D61C23F94DF50093AB72 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E0D61B23F94DF50093AB72 /* UIHelper.swift */; };
+		D7E0D62823FAD9A70093AB72 /* GHEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E0D62723FAD9A70093AB72 /* GHEmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		D7E0D61723F8468F0093AB72 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		D7E0D61923F84B970093AB72 /* GHAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHAvatarImageView.swift; sourceTree = "<group>"; };
 		D7E0D61B23F94DF50093AB72 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		D7E0D62723FAD9A70093AB72 /* GHEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHEmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,13 +116,13 @@
 		D73B73D423F5C09200EA6FA3 /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
+				D7E0D62623FAD94B0093AB72 /* ViewControllers */,
+				D7E0D62523FAD92B0093AB72 /* Labels */,
+				D7E0D62423FAD91C0093AB72 /* TextFields */,
+				D7E0D62323FAD90A0093AB72 /* ImageViews */,
+				D7E0D62223FAD8FD0093AB72 /* Views */,
+				D7E0D62123FAD8F20093AB72 /* Buttons */,
 				D7E0D61423F846200093AB72 /* Cells */,
-				D73B73D023F5B1C900EA6FA3 /* GHButton.swift */,
-				D73B73D223F5BC9900EA6FA3 /* GHTextField.swift */,
-				D776BC4223F5F847003AA0BF /* GHTitleLabel.swift */,
-				D776BC4423F5FD68003AA0BF /* GHBodyLabel.swift */,
-				D776BC4623F60233003AA0BF /* GHAlertVC.swift */,
-				D7E0D61923F84B970093AB72 /* GHAvatarImageView.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -177,6 +179,55 @@
 				D7E0D61723F8468F0093AB72 /* FollowerCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D7E0D62123FAD8F20093AB72 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				D73B73D023F5B1C900EA6FA3 /* GHButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		D7E0D62223FAD8FD0093AB72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D7E0D62723FAD9A70093AB72 /* GHEmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D7E0D62323FAD90A0093AB72 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				D7E0D61923F84B970093AB72 /* GHAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		D7E0D62423FAD91C0093AB72 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				D73B73D223F5BC9900EA6FA3 /* GHTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		D7E0D62523FAD92B0093AB72 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				D776BC4223F5F847003AA0BF /* GHTitleLabel.swift */,
+				D776BC4423F5FD68003AA0BF /* GHBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		D7E0D62623FAD94B0093AB72 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D776BC4623F60233003AA0BF /* GHAlertVC.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +308,7 @@
 				D7262CE923EC78D100D2DBD6 /* ViewController.swift in Sources */,
 				D73B73D323F5BC9900EA6FA3 /* GHTextField.swift in Sources */,
 				D7E0D60D23F7FAD20093AB72 /* User.swift in Sources */,
+				D7E0D62823FAD9A70093AB72 /* GHEmptyStateView.swift in Sources */,
 				D7E0D61823F8468F0093AB72 /* FollowerCell.swift in Sources */,
 				D73B73CE23F5A3F900EA6FA3 /* FavoritesListVC.swift in Sources */,
 				D776BC4723F60233003AA0BF /* GHAlertVC.swift in Sources */,
