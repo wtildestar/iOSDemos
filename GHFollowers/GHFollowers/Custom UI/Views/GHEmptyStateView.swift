@@ -23,6 +23,12 @@ class GHEmptyStateView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    init(message: String) {
+        super.init(frame: .zero)
+        messageLabel.text = message
+        configure()
+    }
+    
     private func configure() {
         addSubview(messageLabel)
         addSubview(logoImageView)
@@ -41,8 +47,8 @@ class GHEmptyStateView: UIView {
             
             logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, constant: 1.3),
             logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, constant: 1.3),
-            logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 200),
-            logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 140)
+            logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 170),
+            logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 40)
         ])
     }
     
