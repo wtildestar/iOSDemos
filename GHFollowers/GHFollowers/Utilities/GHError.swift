@@ -1,8 +1,8 @@
 //
-//  ErrorMessage.swift
+//  GHError.swift
 //  GHFollowers
 //
-//  Created by wtildestar on 15/02/2020.
+//  Created by wtildestar on 18/02/2020.
 //  Copyright © 2020 wtildestar. All rights reserved.
 //
 
@@ -13,4 +13,6 @@ enum GHError: String, Error {
     case unableToComplete   = "Unable to complete your request. Please check your internet connection."
     case invalidResponse    = "Invalid response from the server. Please try again."
     case invalidData        = "The data received from the server was invalid. Please try again."
+    case unableToFavorite   = "There was an error favoriting this user. Please try again."
+    case alreadyInFavorites = "You've already favorited this user."
 }
