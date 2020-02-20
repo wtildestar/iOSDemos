@@ -18,6 +18,7 @@ class MenuViewController: UIViewController {
     
     @IBAction func playButton(_ sender: UIButton) {
         performSegue(withIdentifier: "playSegue", sender: self)
+//        UINavigationController.pushViewController(UIViewController)
     }
     
     

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Yw-8P-RSV">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,8 +45,9 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTk-rz-eae">
-                                <rect key="frame" x="300" y="591.5" width="43" height="40"/>
+                                <rect key="frame" x="300" y="591" width="40" height="41"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="HBP-Nl-uPy"/>
                                     <constraint firstAttribute="width" constant="67" id="ham-B6-NrF">
                                         <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                                     </constraint>
@@ -57,7 +59,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" backgroundImage="lock.circle.fill" catalog="system">
+                                <state key="normal" backgroundImage="lock">
                                     <color key="titleColor" red="0.0" green="0.41527543534845446" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <variation key="default">
@@ -120,7 +122,7 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="282"/>
                                 <variation key="heightClass=regular-widthClass=regular" constant="411"/>
                             </constraint>
-                            <constraint firstItem="KGz-3x-YIf" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="KTk-rz-eae" secondAttribute="trailing" constant="32" id="qI6-aa-Pam">
+                            <constraint firstItem="KGz-3x-YIf" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="KTk-rz-eae" secondAttribute="trailing" constant="35" id="qI6-aa-Pam">
                                 <variation key="heightClass=compact-widthClass=compact" constant="20"/>
                                 <variation key="heightClass=regular-widthClass=regular" constant="68"/>
                             </constraint>
@@ -175,39 +177,9 @@
                     <view key="view" contentMode="scaleToFill" id="uaF-FZ-In2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSS-aL-sMu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <items>
-                                    <navigationItem id="XKQ-Q9-Qnd">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="yPn-vB-x3E">
-                                            <connections>
-                                                <action selector="doneButton:" destination="hIY-wj-qqZ" id="Xbx-ya-U1L"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIQ-yb-zJP">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="dIQ-yb-zJP" firstAttribute="trailing" secondItem="9py-vq-JK4" secondAttribute="trailing" id="Dgx-yd-gyD"/>
-                            <constraint firstItem="RSS-aL-sMu" firstAttribute="top" secondItem="9py-vq-JK4" secondAttribute="top" id="JVg-w3-niq"/>
-                            <constraint firstItem="dIQ-yb-zJP" firstAttribute="bottom" secondItem="9py-vq-JK4" secondAttribute="bottom" id="M4R-6t-Gya"/>
-                            <constraint firstItem="dIQ-yb-zJP" firstAttribute="leading" secondItem="9py-vq-JK4" secondAttribute="leading" id="aHp-On-ddg"/>
-                            <constraint firstItem="9py-vq-JK4" firstAttribute="trailing" secondItem="RSS-aL-sMu" secondAttribute="trailing" id="lOk-G4-OBr"/>
-                            <constraint firstItem="RSS-aL-sMu" firstAttribute="leading" secondItem="9py-vq-JK4" secondAttribute="leading" id="o6f-bj-pVB"/>
-                            <constraint firstItem="dIQ-yb-zJP" firstAttribute="top" secondItem="RSS-aL-sMu" secondAttribute="bottom" id="uF8-3C-aIr"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9py-vq-JK4"/>
                     </view>
-                    <connections>
-                        <outlet property="webView" destination="dIQ-yb-zJP" id="F6I-wH-bbA"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfk-QO-M8m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -347,19 +319,19 @@
                                         <rect key="frame" x="24" y="164" width="169" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZS6-Gu-PzK">
-                                                <rect key="frame" x="0.0" y="1" width="40" height="37.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="VKz-d2-VDi"/>
                                                     <constraint firstAttribute="width" constant="80" id="aVP-uR-Lhi"/>
                                                     <constraint firstAttribute="width" constant="40" id="wGd-FM-fhF"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="arrowshape.turn.up.left" catalog="system"/>
+                                                <state key="normal" backgroundImage="goback"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="wGd-FM-fhF"/>
-                                                        <exclude reference="aVP-uR-Lhi"/>
                                                         <exclude reference="VKz-d2-VDi"/>
+                                                        <exclude reference="aVP-uR-Lhi"/>
+                                                        <exclude reference="wGd-FM-fhF"/>
                                                     </mask>
                                                 </variation>
                                                 <variation key="heightClass=compact-widthClass=compact">
@@ -382,14 +354,14 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msv-i8-8Tb">
-                                                <rect key="frame" x="129" y="-1.5" width="40" height="41"/>
+                                                <rect key="frame" x="129" y="0.0" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="KrX-9z-M2S"/>
                                                     <constraint firstAttribute="width" constant="80" id="NIA-VY-zs2"/>
                                                     <constraint firstAttribute="width" constant="40" id="aIu-RV-hK2"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="gobackward" catalog="system"/>
+                                                <state key="normal" backgroundImage="repeat"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="KrX-9z-M2S"/>
@@ -478,14 +450,14 @@
                                         <rect key="frame" x="2.5" y="294" width="169" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJw-IM-IKa">
-                                                <rect key="frame" x="0.0" y="1" width="40" height="37.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="LK5-KO-U8T"/>
                                                     <constraint firstAttribute="width" constant="80" id="oiA-Xl-LbB"/>
                                                     <constraint firstAttribute="width" constant="40" id="zW3-1b-i99"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="arrowshape.turn.up.left" catalog="system"/>
+                                                <state key="normal" backgroundImage="goback"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="LK5-KO-U8T"/>
@@ -513,14 +485,14 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYv-r4-F9H">
-                                                <rect key="frame" x="129" y="-1.5" width="40" height="41"/>
+                                                <rect key="frame" x="129" y="0.0" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="40S-Zd-vyB"/>
                                                     <constraint firstAttribute="width" constant="80" id="YAy-Vs-jvK"/>
                                                     <constraint firstAttribute="width" constant="40" id="ii3-kt-Iaw"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="gobackward" catalog="system"/>
+                                                <state key="normal" backgroundImage="repeat"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="40S-Zd-vyB"/>
@@ -605,13 +577,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.left" catalog="system" width="64" height="52"/>
-        <image name="gobackward" catalog="system" width="60" height="64"/>
-        <image name="lock.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="goback" width="64" height="64"/>
+        <image name="lock" width="128" height="128"/>
         <image name="logo" width="320" height="160"/>
+        <image name="repeat" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nbq-Ug-PAf"/>
-        <segue reference="GuZ-Je-iRW"/>
+        <segue reference="BiY-EN-7Du"/>
+        <segue reference="4pf-8W-cas"/>
     </inferredMetricsTieBreakers>
 </document>

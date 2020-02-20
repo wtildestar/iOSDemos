@@ -8,28 +8,46 @@
 
 import UIKit
 import WebKit
+import CoreLocation
+import CoreTelephony
 
-class WebKitViewController: UIViewController, WKNavigationDelegate {
+class WebKitViewController: UIViewController, WKUIDelegate, CLLocationManagerDelegate {
     
-    // MARK: - Outlets
-
-    @IBOutlet var webView: UIWebView!
+    var webView: WKWebView!
+    var manager: CLLocationManager!
+    let preferredLanguage = NSLocale.preferredLanguages[0]
     
-    // MARK: - Actions
-    
-    @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    override func loadView() {
+        self.view = webView
+        let webConfiguration = WKWebViewConfiguration()
+        let screenSize: CGRect = UIScreen.main.bounds
+        webView = WKWebView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height), configuration: webConfiguration)
+        webView.uiDelegate = self
+        
+        view.addSubview(webView)
     }
-    
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestAlwaysAuthorization()
+        manager.startUpdatingLocation()
+//        setNavigationBar()
         
-        let url = URL(string: "https://google.com")!
-        let request = URLRequest(url: url)
-        webView.loadRequest(request)
-
+        let locale = Locale.current
+        print(locale.regionCode!)
+        configureWebView()
+        
+        if Locale.current.regionCode == "RU" || preferredLanguage.starts(with: "ru") {
+            webView.load("https://yandex.ru/")
+        } else {
+            webView.load("https://google.com/")
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,6 +64,31 @@ class WebKitViewController: UIViewController, WKNavigationDelegate {
         }
     }
     
+    // MARK: - Methods
+    
+//    func setNavigationBar() {
+//        let screenSize: CGRect = UIScreen.main.bounds
+//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 44))
+//        let navItem = UINavigationItem(title: "")
+//        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: #selector(done))
+//        navItem.rightBarButtonItem = doneItem
+//        navBar.setItems([navItem], animated: false)
+//        self.view.addSubview(navBar)
+//    }
+//
+//    @objc func done() {
+//        dismiss(animated: true)
+//    }
+    
+    private func configureWebView() {
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        ])
+    }
     
     // MARK: - Methods
     

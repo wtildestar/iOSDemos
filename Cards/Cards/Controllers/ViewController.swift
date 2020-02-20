@@ -87,7 +87,6 @@ class ViewController: UIViewController {
         } else {
              seconds -= 1
             timeLabel.text = "\(seconds)"
-            print(seconds)
         }
     }
     
@@ -127,7 +126,7 @@ class ViewController: UIViewController {
                     completion: { finished in
                         let cardsToAnimate = self.faceUpCardViews
                         if self.faceUpCardViewsMatch {
-                            UIViewPropertyAnimator.runningPropertyAnimator(
+                            UIView.animate(
                                 withDuration: 0.2,
                                 delay: 0,
                                 options: [],
@@ -137,7 +136,7 @@ class ViewController: UIViewController {
                                     }
                             })
                             { (position) in
-                                UIViewPropertyAnimator.runningPropertyAnimator(
+                                UIView.animate(
                                     withDuration: 0.4,
                                     delay: 0,
                                     options: [],
