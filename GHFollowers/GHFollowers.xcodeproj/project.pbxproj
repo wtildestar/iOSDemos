@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,7 @@
 		D7B278C323FE79790066D575 /* GHDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B278C223FE79790066D575 /* GHDataLoadingVC.swift */; };
 		D7B278C523FEAC620066D575 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B278C423FEAC610066D575 /* UIView+Ext.swift */; };
 		D7B278C723FEE0CE0066D575 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B278C623FEE0CE0066D575 /* UITableView+Ext.swift */; };
+		D7B278CA240130F60066D575 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D7B278C9240130F60066D575 /* SnapKit */; };
 		D7E0D60B23F7F8FE0093AB72 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E0D60A23F7F8FD0093AB72 /* Follower.swift */; };
 		D7E0D60D23F7FAD20093AB72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E0D60C23F7FAD20093AB72 /* User.swift */; };
 		D7E0D61023F809070093AB72 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E0D60F23F809070093AB72 /* NetworkManager.swift */; };
@@ -97,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7B278CA240130F60066D575 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +312,9 @@
 			dependencies = (
 			);
 			name = GHFollowers;
+			packageProductDependencies = (
+				D7B278C9240130F60066D575 /* SnapKit */,
+			);
 			productName = GHFollowers;
 			productReference = D7262CE123EC78D100D2DBD6 /* GHFollowers.app */;
 			productType = "com.apple.product-type.application";
@@ -338,6 +343,9 @@
 				Base,
 			);
 			mainGroup = D7262CD823EC78D100D2DBD6;
+			packageReferences = (
+				D7B278C8240130F60066D575 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = D7262CE223EC78D100D2DBD6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -588,6 +596,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D7B278C8240130F60066D575 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D7B278C9240130F60066D575 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D7B278C8240130F60066D575 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D7262CD923EC78D100D2DBD6 /* Project object */;
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class SearchVC: UIViewController {
     
@@ -75,25 +76,23 @@ class SearchVC: UIViewController {
     func configureTextField() {
         usernameTextField.delegate = self
         
-        NSLayoutConstraint.activate([
-            usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
-            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            usernameTextField.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        usernameTextField.snp.makeConstraints { (make) in
+            make.bottom.equalTo(callToActionButton.snp.top).offset(-10)
+            make.height.equalTo(50)
+            make.centerX.equalTo(view)
+            make.size.equalTo(CGSize(width: 200, height: 50))
+        }
     }
     
     func configureCallToActionButton() {
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         
-        NSLayoutConstraint.activate([
-            callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            callToActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            callToActionButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        callToActionButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-50)
+            make.centerX.equalTo(view)
+            make.size.greaterThanOrEqualTo(CGSize(width: 200, height: 50))
+        }
     }
-
 }
 
 extension SearchVC: UITextFieldDelegate {
