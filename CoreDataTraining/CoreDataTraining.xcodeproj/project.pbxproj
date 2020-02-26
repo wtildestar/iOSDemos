@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,11 @@
 		D704F66524043FAA0037B53E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D704F66424043FAA0037B53E /* Assets.xcassets */; };
 		D704F66824043FAA0037B53E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D704F66624043FAA0037B53E /* LaunchScreen.storyboard */; };
 		D704F670240441460037B53E /* CompaniesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704F66F240441460037B53E /* CompaniesVC.swift */; };
+		D704F678240471AF0037B53E /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704F677240471AF0037B53E /* UIColor+theme.swift */; };
+		D704F67B240622870037B53E /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704F67A240622870037B53E /* Company.swift */; };
+		D704F67F2406375D0037B53E /* CreateCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704F67E2406375D0037B53E /* CreateCompanyVC.swift */; };
+		D704F682240641960037B53E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D704F681240641960037B53E /* SnapKit */; };
+		D704F6852406BB660037B53E /* CoreDataTrainingModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D704F6832406BB660037B53E /* CoreDataTrainingModels.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,10 @@
 		D704F66724043FAA0037B53E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D704F66924043FAA0037B53E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D704F66F240441460037B53E /* CompaniesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesVC.swift; sourceTree = "<group>"; };
+		D704F677240471AF0037B53E /* UIColor+theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
+		D704F67A240622870037B53E /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		D704F67E2406375D0037B53E /* CreateCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyVC.swift; sourceTree = "<group>"; };
+		D704F6842406BB660037B53E /* CoreDataTrainingModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataTrainingModels.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D704F682240641960037B53E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,9 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				D704F67424044E260037B53E /* App */,
-				D704F67224044DA50037B53E /* Controller */,
+				D704F679240622720037B53E /* Model */,
 				D704F67124044D9E0037B53E /* View */,
+				D704F67224044DA50037B53E /* Controller */,
+				D704F6762404719C0037B53E /* Extensions */,
 				D704F67324044DF30037B53E /* Support */,
+				D704F6832406BB660037B53E /* CoreDataTrainingModels.xcdatamodeld */,
 			);
 			path = CoreDataTraining;
 			sourceTree = "<group>";
@@ -76,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				D704F66F240441460037B53E /* CompaniesVC.swift */,
+				D704F67E2406375D0037B53E /* CreateCompanyVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -107,6 +121,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		D704F6762404719C0037B53E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D704F677240471AF0037B53E /* UIColor+theme.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D704F679240622720037B53E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D704F67A240622870037B53E /* Company.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +153,9 @@
 			dependencies = (
 			);
 			name = CoreDataTraining;
+			packageProductDependencies = (
+				D704F681240641960037B53E /* SnapKit */,
+			);
 			productName = CoreDataTraining;
 			productReference = D704F65824043FA80037B53E /* CoreDataTraining.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +184,9 @@
 				Base,
 			);
 			mainGroup = D704F64F24043FA80037B53E;
+			packageReferences = (
+				D704F680240641960037B53E /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = D704F65924043FA80037B53E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -178,8 +214,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D704F67F2406375D0037B53E /* CreateCompanyVC.swift in Sources */,
+				D704F6852406BB660037B53E /* CoreDataTrainingModels.xcdatamodeld in Sources */,
 				D704F65C24043FA80037B53E /* AppDelegate.swift in Sources */,
+				D704F678240471AF0037B53E /* UIColor+theme.swift in Sources */,
 				D704F65E24043FA80037B53E /* SceneDelegate.swift in Sources */,
+				D704F67B240622870037B53E /* Company.swift in Sources */,
 				D704F670240441460037B53E /* CompaniesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +416,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D704F680240641960037B53E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D704F681240641960037B53E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D704F680240641960037B53E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		D704F6832406BB660037B53E /* CoreDataTrainingModels.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D704F6842406BB660037B53E /* CoreDataTrainingModels.xcdatamodel */,
+			);
+			currentVersion = D704F6842406BB660037B53E /* CoreDataTrainingModels.xcdatamodel */;
+			path = CoreDataTrainingModels.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D704F65024043FA80037B53E /* Project object */;
 }
