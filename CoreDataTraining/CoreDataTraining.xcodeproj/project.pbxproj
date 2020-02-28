@@ -18,6 +18,7 @@
 		D704F67F2406375D0037B53E /* CreateCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704F67E2406375D0037B53E /* CreateCompanyVC.swift */; };
 		D704F682240641960037B53E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D704F681240641960037B53E /* SnapKit */; };
 		D704F6852406BB660037B53E /* CoreDataTrainingModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D704F6832406BB660037B53E /* CoreDataTrainingModels.xcdatamodeld */; };
+		D704F6872406D98D0037B53E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704F6862406D98D0037B53E /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		D704F67A240622870037B53E /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		D704F67E2406375D0037B53E /* CreateCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyVC.swift; sourceTree = "<group>"; };
 		D704F6842406BB660037B53E /* CoreDataTrainingModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataTrainingModels.xcdatamodel; sourceTree = "<group>"; };
+		D704F6862406D98D0037B53E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				D704F6762404719C0037B53E /* Extensions */,
 				D704F67324044DF30037B53E /* Support */,
 				D704F6832406BB660037B53E /* CoreDataTrainingModels.xcdatamodeld */,
+				D704F6862406D98D0037B53E /* CoreDataManager.swift */,
 			);
 			path = CoreDataTraining;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				D704F678240471AF0037B53E /* UIColor+theme.swift in Sources */,
 				D704F65E24043FA80037B53E /* SceneDelegate.swift in Sources */,
 				D704F67B240622870037B53E /* Company.swift in Sources */,
+				D704F6872406D98D0037B53E /* CoreDataManager.swift in Sources */,
 				D704F670240441460037B53E /* CompaniesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
