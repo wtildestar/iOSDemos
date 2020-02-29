@@ -85,10 +85,6 @@ class CreateCompanyVC: UIViewController, UIImagePickerControllerDelegate, UINavi
         dismiss(animated: true)
     }
     
-    @objc private func handleCancel() {
-        dismiss(animated: true)
-    }
-    
     @objc private func handleSave() {
         if company == nil {
             createCompany()
@@ -155,15 +151,8 @@ class CreateCompanyVC: UIViewController, UIImagePickerControllerDelegate, UINavi
     
     private func setupUI() {
         view.backgroundColor = UIColor.darkBlue
-        let lightBlueBackgroundView = UIView()
-        lightBlueBackgroundView.backgroundColor = UIColor.lightBlue
         
-        view.addSubview(lightBlueBackgroundView)
-             
-         lightBlueBackgroundView.snp.makeConstraints { (make) in
-             make.top.left.right.equalTo(view)
-             make.height.equalTo(350)
-         }
+        let lightBlueBackgroundView = setupLightBlueBackgroundView(height: 350)
         
         view.addSubview(imageView)
 
@@ -203,7 +192,7 @@ class CreateCompanyVC: UIViewController, UIImagePickerControllerDelegate, UINavi
     
     private func navigationItemSetup() {
         navigationItem.title = "Create Company"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
+        setupCancelButton()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSave))
     }
     

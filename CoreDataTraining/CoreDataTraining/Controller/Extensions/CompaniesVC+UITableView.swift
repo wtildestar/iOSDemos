@@ -10,6 +10,14 @@ import UIKit
 
 extension CompaniesVC {
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let company = self.companies[indexPath.row]
+        let employeesVC = EmployeesVC()
+        employeesVC.company = company
+        navigationController?.pushViewController(employeesVC, animated: true)
+        
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.backgroundColor = .lightBlue
