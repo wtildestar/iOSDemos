@@ -43,13 +43,25 @@ class CreateEmployeeVC: UIViewController {
         return textField
     }()
     
+    let employeeTypeSegmentedControl: UISegmentedControl = {
+//        let types = ["Executive", "Senior Management", "Staff"]
+        let types = [
+            EmployeeType.Executive.rawValue,
+            EmployeeType.SeniorManagement.rawValue,
+            EmployeeType.Staff.rawValue,
+            EmployeeType.Intern.rawValue
+        ]
+        let sc = UISegmentedControl(items: types)
+        sc.selectedSegmentIndex = 0
+        return sc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Create Employee"
         view.backgroundColor = .darkBlue
         setupCancelButton()
-        _ = setupLightBlueBackgroundView(height: 100)
         setupUI()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSave))
     }
@@ -72,9 +84,13 @@ class CreateEmployeeVC: UIViewController {
                 showError(title: "Bad Date", message: "This date intered not valid")
             return
         }
-        print(birthdayText)
-        print(birthdayDate)
-        let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, birthday: birthdayDate, company: company)
+        
+        guard let employeeType =
+            employeeTypeSegmentedControl.titleForSegment(at:
+            employeeTypeSegmentedControl.selectedSegmentIndex) else
+        { return }
+        
+        let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, employeeType: employeeType, birthday: birthdayDate, company: company)
         if let error = tuple.1 {
             // present modal error
             print(error)
@@ -97,6 +113,8 @@ class CreateEmployeeVC: UIViewController {
     }
     
     func setupUI() {
+        _ = setupLightBlueBackgroundView(height: 150)
+        
         view.addSubview(nameLabel)
         
         nameLabel.snp.makeConstraints { (make) in
@@ -132,6 +150,16 @@ class CreateEmployeeVC: UIViewController {
             make.right.equalTo(view.snp.right)
             make.bottom.equalTo(birthdayLabel.snp.bottom)
             make.top.equalTo(birthdayLabel.snp.top)
+        }
+        
+        view.addSubview(employeeTypeSegmentedControl)
+        
+        employeeTypeSegmentedControl.snp.makeConstraints { (make) in
+            make.top.equalTo(birthdayLabel.snp.bottom)
+            make.left.equalTo(view).offset(16)
+            make.right.equalTo(view).offset(-16)
+            make.height.equalTo(34)
+            
         }
     }
 

@@ -9,11 +9,26 @@
 import UIKit
 import CoreData
 
+class IdentedLabel: UILabel {
+
+    override func drawText(in rect: CGRect) {
+        let customRect = frame.inset(by: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0))
+        super.drawText(in: customRect)
+    }
+    
+}
+
 class EmployeesVC: UITableViewController, CreateEmployeeDelegate {
     
     var company: Company?
-    var employees = [Employee]()
+//    var employees = [Employee]()
     let reuseID = "cell"
+    
+    var shortNameEmployees = [Employee]()
+    var longNameEmployees = [Employee]()
+    var reallyLongNameEmployees = [Employee]()
+    
+    var allEmployees = [[Employee]]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,24 +49,11 @@ class EmployeesVC: UITableViewController, CreateEmployeeDelegate {
     }
     
     func didAddEmployee(employee: Employee) {
-        employees.append(employee)
-        tableView.reloadData()
-    }
-    
-    private func fetchEmployees() {
-        guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
-        self.employees = companyEmployees
-//        let context = CoreDataManager.shared.persistentContainer.viewContext
-//        let request = NSFetchRequest<Employee>(entityName: "Employee")
-//
-//        do {
-//            let employees = try context.fetch(request)
-//            self.employees = employees
-//            employees.forEach{print("Employee name:", $0.name ?? "")}
-//
-//        } catch let err {
-//            print("Failed to fetch employees:", err)
-//        }
+        guard let section = employeeTypes.firstIndex(of: employee.type!) else { return }
+        let row = allEmployees[section].count
+        let insertionIndexPath = IndexPath(row: row, section: section)
+        allEmployees[section].append(employee)
+        tableView.insertRows(at: [insertionIndexPath], with: .middle)
     }
     
     @objc func handleAdd() {
@@ -69,30 +71,83 @@ class EmployeesVC: UITableViewController, CreateEmployeeDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath)
-        let employee = employees[indexPath.row]
+        
+        let employee = allEmployees[indexPath.section][indexPath.row]
         cell.textLabel?.text = employee.name
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
         if let birthday = employee.employeeInformation?.birthday {
             cell.textLabel?.text = "\(employee.name ?? "")    \(dateFormatter.string(from: birthday))"
         }
-        
-        
-        //        if let taxId = employee.employeeInformation?.taxId {
-        //            cell.textLabel?.text = "\(employee.name ?? "")    \(taxId)"
-        //        }
-        
         cell.backgroundColor = UIColor.tealColor
         cell.textLabel?.textColor = .white
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         return cell
     }
+
+    var employeeTypes = [
+        EmployeeType.Executive.rawValue,
+        EmployeeType.SeniorManagement.rawValue,
+        EmployeeType.Staff.rawValue,
+        EmployeeType.Intern.rawValue
+    ]
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return employees.count
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+//        if section == 0 {
+//            label.text = EmployeeType.Executive.rawValue
+//        } else if section == 1 {
+//            label.text = EmployeeType.SeniorManagement.rawValue
+//        } else {
+//            label.text = EmployeeType.Staff.rawValue
+//        }
+        
+        label.backgroundColor = UIColor.lightBlue
+        label.textColor = UIColor.darkBlue
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.text = employeeTypes[section]
+//        label.snp.makeConstraints { (make) in
+//            make.left.equalTo(view.snp.left).offset(16)
+//        }
+        return label
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allEmployees[section].count
+    }
+    
+    private func fetchEmployees() {
+        guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
+       
+        allEmployees = []
+        
+        employeeTypes.forEach { (employeeType) in
+            allEmployees.append(
+                companyEmployees.filter { $0.type == employeeType }
+            )
+        }
+        
+//        let executives = companyEmployees.filter { (employee) -> Bool in
+//            return employee.type == EmployeeType.Executive.rawValue
+//        }
+//
+//        let seniorManagement = companyEmployees.filter { $0.type == EmployeeType.SeniorManagement.rawValue }
+//
+//        allEmployees = [
+//            executives,
+//            seniorManagement,
+//            companyEmployees.filter { $0.type == EmployeeType.Staff.rawValue }
+//        ]
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return allEmployees.count
+    }
+
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

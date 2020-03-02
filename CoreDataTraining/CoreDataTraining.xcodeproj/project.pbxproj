@@ -25,6 +25,7 @@
 		D704F692240A244C0037B53E /* EmployeesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704F691240A244C0037B53E /* EmployeesVC.swift */; };
 		D704F695240A2BDC0037B53E /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704F694240A2BDC0037B53E /* UIViewController+Helpers.swift */; };
 		D704F697240A315D0037B53E /* CreateEmployeeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704F696240A315D0037B53E /* CreateEmployeeVC.swift */; };
+		D7E2D498240C605D00870CCC /* EmployeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E2D497240C605D00870CCC /* EmployeeType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		D704F691240A244C0037B53E /* EmployeesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesVC.swift; sourceTree = "<group>"; };
 		D704F694240A2BDC0037B53E /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		D704F696240A315D0037B53E /* CreateEmployeeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEmployeeVC.swift; sourceTree = "<group>"; };
+		D7E2D497240C605D00870CCC /* EmployeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 		D704F698240A33360037B53E /* Employee */ = {
 			isa = PBXGroup;
 			children = (
+				D7E2D497240C605D00870CCC /* EmployeeType.swift */,
 				D704F691240A244C0037B53E /* EmployeesVC.swift */,
 				D704F696240A315D0037B53E /* CreateEmployeeVC.swift */,
 			);
@@ -279,6 +282,7 @@
 				D704F68E2409AB950037B53E /* CompaniesVC+CreateCompany.swift in Sources */,
 				D704F67F2406375D0037B53E /* CreateCompanyVC.swift in Sources */,
 				D704F6902409B0D10037B53E /* CompaniesVC+UITableView.swift in Sources */,
+				D7E2D498240C605D00870CCC /* EmployeeType.swift in Sources */,
 				D704F6852406BB660037B53E /* CoreDataTrainingModels.xcdatamodeld in Sources */,
 				D704F65C24043FA80037B53E /* AppDelegate.swift in Sources */,
 				D704F678240471AF0037B53E /* UIColor+theme.swift in Sources */,

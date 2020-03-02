@@ -27,8 +27,65 @@ class CompaniesVC: UITableViewController {
         
         navigationItem.title = "Companies"
         setupPlusButtonInNavBar(selector: #selector(handleAddCompany))
-        navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset))
+        
+        navigationItem.leftBarButtonItems = [
+            UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset)),
+            UIBarButtonItem(title: "Do Updates", style: .plain, target: self, action: #selector(doUpdate))
+        ]
     }
+    
+    @objc private func doUpdate() {
+        print("trying update..")
+        
+        CoreDataManager.shared.persistentContainer.performBackgroundTask { (backgroundContext) in
+            let request: NSFetchRequest<Company> = Company.fetchRequest()
+            
+            do {
+                let companies = try backgroundContext.fetch(request)
+                
+                companies.forEach({ (company) in
+                    print(company.name ?? "")
+                    company.name = "C: \(company.name ?? "")"
+                })
+                
+                do {
+                    try backgroundContext.save()
+                    
+                    DispatchQueue.main.async {
+                        CoreDataManager.shared.persistentContainer.viewContext.reset()
+                        self.companies = CoreDataManager.shared.fetchCompanies()
+                        self.tableView.reloadData()
+                    }
+                } catch let saveErr {
+                    print("Failed to save background:", saveErr)
+                }
+                
+            } catch let err {
+                print("Failed to fetch companies on background:", err)
+            }
+        }
+    }
+    
+//    @objc private func doWork() {
+//        print("trying to do work..")
+////        let context = CoreDataManager.shared.persistentContainer.viewContext
+//
+//
+//        CoreDataManager.shared.persistentContainer.performBackgroundTask { (backgroundContext) in
+//            (0...20000).forEach { (value) in
+//                print(value)
+//                let company = Company(context: backgroundContext)
+//                company.name = String(value)
+//            }
+//
+//            do {
+//                try backgroundContext.save()
+//            } catch let err {
+//                print("Failed to save: ", err)
+//            }
+//        }
+//
+//    }
     
     // MARK: - Methods
     
