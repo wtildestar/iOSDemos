@@ -13,24 +13,21 @@ class CompanyCell: UITableViewCell {
     
     var company: Company? {
         didSet {
-            guard
-                let company = company,
-                let imageData = company.imageData
-                else { return }
-            nameFoundedDateLabel.text = company.name
-            companyImageView.image = UIImage(data: imageData)
+            nameFoundedDateLabel.text = company?.name
             
-            if let name = company.name, let founded = company.founded {
-                
+            if let imageData = company?.imageData {
+                companyImageView.image = UIImage(data: imageData)
+            }
+            
+            if let name = company?.name, let founded = company?.founded {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MMM dd, yyyy"
                 let foundedDateString = dateFormatter.string(from: founded)
-                
                 let dateString = "\(name) - Founded \(foundedDateString)"
                 nameFoundedDateLabel.text = dateString
-                
             } else {
-                nameFoundedDateLabel.text = company.name
+                nameFoundedDateLabel.text = company?.name
+                nameFoundedDateLabel.text = "\(company?.name ?? "") \(company?.numEmployees ?? "")"
             }
         }
     }
