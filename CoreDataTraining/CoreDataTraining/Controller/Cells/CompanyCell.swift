@@ -47,7 +47,7 @@ class CompanyCell: UITableViewCell {
     
     let nameFoundedDateLabel: UILabel = {
        let label = UILabel()
-        label.text = "COMPANY NAME"
+//        label.text = "COMPANY NAME"
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .white
         return label

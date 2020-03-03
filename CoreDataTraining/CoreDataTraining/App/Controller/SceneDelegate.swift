@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 //        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        let navVC = CustomNavigationController(rootViewController: CompaniesVC())
+        let navVC = CustomNavigationController(rootViewController: CompaniesAutoUpdateVC())
         self.window?.rootViewController = navVC
         self.window?.makeKeyAndVisible()
         

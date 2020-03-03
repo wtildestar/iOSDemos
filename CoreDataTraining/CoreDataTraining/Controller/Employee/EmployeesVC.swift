@@ -73,11 +73,11 @@ class EmployeesVC: UITableViewController, CreateEmployeeDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath)
         
         let employee = allEmployees[indexPath.section][indexPath.row]
-        cell.textLabel?.text = employee.name
+        cell.textLabel?.text = employee.fullName
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
         if let birthday = employee.employeeInformation?.birthday {
-            cell.textLabel?.text = "\(employee.name ?? "")    \(dateFormatter.string(from: birthday))"
+            cell.textLabel?.text = "\(employee.fullName ?? "")    \(dateFormatter.string(from: birthday))"
         }
         cell.backgroundColor = UIColor.tealColor
         cell.textLabel?.textColor = .white

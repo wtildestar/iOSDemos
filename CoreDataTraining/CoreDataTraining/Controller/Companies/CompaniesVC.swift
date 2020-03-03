@@ -30,41 +30,87 @@ class CompaniesVC: UITableViewController {
         
         navigationItem.leftBarButtonItems = [
             UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset)),
-            UIBarButtonItem(title: "Do Updates", style: .plain, target: self, action: #selector(doUpdate))
+            UIBarButtonItem(title: "Nested Updates", style: .plain, target: self, action: #selector(doNestedUpdates))
         ]
     }
     
-    @objc private func doUpdate() {
-        print("trying update..")
+    @objc private func doNestedUpdates() {
+        print("Trying to persform nested updates now..")
         
-        CoreDataManager.shared.persistentContainer.performBackgroundTask { (backgroundContext) in
-            let request: NSFetchRequest<Company> = Company.fetchRequest()
+        DispatchQueue.global(qos: .background).async {
+            let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
             
+            privateContext.parent = CoreDataManager.shared.persistentContainer.viewContext
+            let request: NSFetchRequest<Company> = Company.fetchRequest()
+            request.fetchLimit = 1
             do {
-                let companies = try backgroundContext.fetch(request)
+                let companies = try privateContext.fetch(request)
                 
                 companies.forEach({ (company) in
                     print(company.name ?? "")
-                    company.name = "C: \(company.name ?? "")"
+                    company.name = "D: \(company.name ?? "")"
                 })
                 
                 do {
-                    try backgroundContext.save()
+                    try privateContext.save()
                     
                     DispatchQueue.main.async {
-                        CoreDataManager.shared.persistentContainer.viewContext.reset()
-                        self.companies = CoreDataManager.shared.fetchCompanies()
-                        self.tableView.reloadData()
+                        do {
+                            let context = CoreDataManager.shared.persistentContainer.viewContext
+                            if context.hasChanges {
+                                try context.save()
+                            }
+                            self.tableView.reloadData()
+                            
+                        } catch let finalSaveErr {
+                            print("Failed to save main context:", finalSaveErr)
+                        }
+                        
+                        
                     }
                 } catch let saveErr {
-                    print("Failed to save background:", saveErr)
+                    print("Failed to save private context:", saveErr)
                 }
                 
-            } catch let err {
-                print("Failed to fetch companies on background:", err)
+                
+            } catch let fetchErr {
+                print("Failed to fetch on private context:", fetchErr)
             }
+            
         }
     }
+    
+//    @objc private func doUpdate() {
+//        print("trying update..")
+//
+//        CoreDataManager.shared.persistentContainer.performBackgroundTask { (backgroundContext) in
+//            let request: NSFetchRequest<Company> = Company.fetchRequest()
+//
+//            do {
+//                let companies = try backgroundContext.fetch(request)
+//
+//                companies.forEach({ (company) in
+//                    print(company.name ?? "")
+//                    company.name = "D: \(company.name ?? "")"
+//                })
+//
+//                do {
+//                    try backgroundContext.save()
+//
+//                    DispatchQueue.main.async {
+//                        CoreDataManager.shared.persistentContainer.viewContext.reset()
+//                        self.companies = CoreDataManager.shared.fetchCompanies()
+//                        self.tableView.reloadData()
+//                    }
+//                } catch let saveErr {
+//                    print("Failed to save background:", saveErr)
+//                }
+//
+//            } catch let err {
+//                print("Failed to fetch companies on background:", err)
+//            }
+//        }
+//    }
     
 //    @objc private func doWork() {
 //        print("trying to do work..")
