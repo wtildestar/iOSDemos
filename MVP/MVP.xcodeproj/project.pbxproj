@@ -17,12 +17,14 @@
 		D7DE30DF240EEAE600FD53D6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE30DE240EEAE600FD53D6 /* Comment.swift */; };
 		D7DE30E1240EEB2400FD53D6 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE30E0240EEB2400FD53D6 /* MainPresenter.swift */; };
 		D7DE30E7240F6A0A00FD53D6 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7DE30E6240F6A0A00FD53D6 /* MainViewController.xib */; };
-		D7DE30E9240F6BC700FD53D6 /* ModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE30E8240F6BC700FD53D6 /* ModelBuilder.swift */; };
+		D7DE30E9240F6BC700FD53D6 /* AssemblyModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE30E8240F6BC700FD53D6 /* AssemblyModelBuilder.swift */; };
 		D7DE30EC240F755100FD53D6 /* MainPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE30EB240F755100FD53D6 /* MainPresenterTest.swift */; };
 		D7DE30EE240FA27E00FD53D6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE30ED240FA27E00FD53D6 /* NetworkService.swift */; };
 		D7DE30F1240FF0A000FD53D6 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE30F0240FF0A000FD53D6 /* DetailPresenter.swift */; };
 		D7DE30FB241006DA00FD53D6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE30F9241006DA00FD53D6 /* DetailViewController.swift */; };
 		D7DE30FC241006DA00FD53D6 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7DE30FA241006DA00FD53D6 /* DetailViewController.xib */; };
+		D7DE30FE241013E600FD53D6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE30FD241013E600FD53D6 /* Router.swift */; };
+		D7DE31002410671D00FD53D6 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE30FF2410671D00FD53D6 /* RouterTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +52,14 @@
 		D7DE30DE240EEAE600FD53D6 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D7DE30E0240EEB2400FD53D6 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		D7DE30E6240F6A0A00FD53D6 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		D7DE30E8240F6BC700FD53D6 /* ModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBuilder.swift; sourceTree = "<group>"; };
+		D7DE30E8240F6BC700FD53D6 /* AssemblyModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyModelBuilder.swift; sourceTree = "<group>"; };
 		D7DE30EB240F755100FD53D6 /* MainPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTest.swift; sourceTree = "<group>"; };
 		D7DE30ED240FA27E00FD53D6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D7DE30F0240FF0A000FD53D6 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		D7DE30F9241006DA00FD53D6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D7DE30FA241006DA00FD53D6 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		D7DE30FD241013E600FD53D6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D7DE30FF2410671D00FD53D6 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +103,8 @@
 			children = (
 				D7DE30BC240EEACA00FD53D6 /* AppDelegate.swift */,
 				D7DE30BE240EEACA00FD53D6 /* SceneDelegate.swift */,
-				D7DE30E8240F6BC700FD53D6 /* ModelBuilder.swift */,
+				D7DE30E8240F6BC700FD53D6 /* AssemblyModelBuilder.swift */,
+				D7DE30FD241013E600FD53D6 /* Router.swift */,
 				D7DE30E2240F699800FD53D6 /* MainModule */,
 				D7DE30F32410029000FD53D6 /* DetailModule */,
 				D7DE30C2240EEACA00FD53D6 /* Main.storyboard */,
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D7DE30EB240F755100FD53D6 /* MainPresenterTest.swift */,
+				D7DE30FF2410671D00FD53D6 /* RouterTest.swift */,
 			);
 			path = TestMainModule;
 			sourceTree = "<group>";
@@ -303,10 +309,11 @@
 			files = (
 				D7DE30FB241006DA00FD53D6 /* DetailViewController.swift in Sources */,
 				D7DE30E1240EEB2400FD53D6 /* MainPresenter.swift in Sources */,
+				D7DE30FE241013E600FD53D6 /* Router.swift in Sources */,
 				D7DE30C1240EEACA00FD53D6 /* MainViewController.swift in Sources */,
 				D7DE30BD240EEACA00FD53D6 /* AppDelegate.swift in Sources */,
 				D7DE30F1240FF0A000FD53D6 /* DetailPresenter.swift in Sources */,
-				D7DE30E9240F6BC700FD53D6 /* ModelBuilder.swift in Sources */,
+				D7DE30E9240F6BC700FD53D6 /* AssemblyModelBuilder.swift in Sources */,
 				D7DE30DF240EEAE600FD53D6 /* Comment.swift in Sources */,
 				D7DE30BF240EEACA00FD53D6 /* SceneDelegate.swift in Sources */,
 				D7DE30EE240FA27E00FD53D6 /* NetworkService.swift in Sources */,
@@ -318,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7DE30D4240EEACB00FD53D6 /* MVPTests.swift in Sources */,
+				D7DE31002410671D00FD53D6 /* RouterTest.swift in Sources */,
 				D7DE30EC240F755100FD53D6 /* MainPresenterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

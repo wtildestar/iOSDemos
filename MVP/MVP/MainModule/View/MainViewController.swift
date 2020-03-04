@@ -28,7 +28,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let comment = presenter.comments?[indexPath.row]
-        cell.textLabel?.text = comment?.body 
+        cell.textLabel?.text = comment?.body
         return cell
     }
 }
@@ -36,8 +36,9 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let comment = presenter.comments?[indexPath.row]
-        let detailViewController = ModelBuilder.createDetailModule(comment: comment)
-        navigationController?.pushViewController(detailViewController, animated: true)
+        presenter.tapOnTheComment(comment: comment)
+//        let detailViewController = ModelBuilder.createDetailModule(comment: comment)
+//        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
