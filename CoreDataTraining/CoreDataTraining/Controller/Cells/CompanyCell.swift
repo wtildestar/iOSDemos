@@ -19,7 +19,8 @@ class CompanyCell: UITableViewCell {
                 companyImageView.image = UIImage(data: imageData)
             }
             
-            if let name = company?.name, let founded = company?.founded {
+            if let name = company?.name, let founded = company?.founded
+            {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MMM dd, yyyy"
                 let foundedDateString = dateFormatter.string(from: founded)
@@ -27,7 +28,7 @@ class CompanyCell: UITableViewCell {
                 nameFoundedDateLabel.text = dateString
             } else {
                 nameFoundedDateLabel.text = company?.name
-                nameFoundedDateLabel.text = "\(company?.name ?? "") \(company?.numEmployees ?? "")"
+//                nameFoundedDateLabel.text = "\(company?.name ?? "") \(company?.numEmployees ?? "")"
             }
         }
     }
@@ -37,7 +38,7 @@ class CompanyCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
-        imageView.layer.borderColor = UIColor.darkBlue.cgColor
+        imageView.layer.borderColor = UIColor.darkGray.cgColor
         imageView.layer.borderWidth = 1
         return imageView
     }()
@@ -52,7 +53,7 @@ class CompanyCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = UIColor.tealColor
+        backgroundColor = UIColor.darkRose
         
         addSubview(companyImageView)
         companyImageView.snp.makeConstraints { (make) in

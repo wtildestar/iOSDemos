@@ -80,7 +80,7 @@ extension CompaniesVC {
             self.present(navController, animated: true)
             completion(true)
         }
-        editAction.backgroundColor = UIColor.darkBlue
+        editAction.backgroundColor = UIColor.darkGray
         
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }

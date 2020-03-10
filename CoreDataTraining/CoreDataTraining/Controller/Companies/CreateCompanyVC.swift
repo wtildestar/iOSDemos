@@ -150,7 +150,7 @@ class CreateCompanyVC: UIViewController, UIImagePickerControllerDelegate, UINavi
     // MARK: - Methods
     
     private func setupUI() {
-        view.backgroundColor = UIColor.darkBlue
+        view.backgroundColor = UIColor.darkGray
         
         let lightBlueBackgroundView = setupLightBlueBackgroundView(height: 350)
         
@@ -199,7 +199,7 @@ class CreateCompanyVC: UIViewController, UIImagePickerControllerDelegate, UINavi
     private func setupCircularImageStyle() {
         imageView.layer.cornerRadius = imageView.frame.width / 2
         imageView.clipsToBounds = true
-        imageView.layer.borderColor = UIColor.darkBlue.cgColor
+        imageView.layer.borderColor = UIColor.darkGray.cgColor
         imageView.layer.borderWidth = 2
     }
     

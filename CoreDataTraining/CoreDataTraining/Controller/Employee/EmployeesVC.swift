@@ -39,7 +39,7 @@ class EmployeesVC: UITableViewController, CreateEmployeeDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundColor = UIColor.darkBlue
+        tableView.backgroundColor = UIColor.darkGray
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseID)
         fetchEmployees()
         // Uncomment the following line to preserve selection between presentations
@@ -73,13 +73,13 @@ class EmployeesVC: UITableViewController, CreateEmployeeDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath)
         
         let employee = allEmployees[indexPath.section][indexPath.row]
-        cell.textLabel?.text = employee.fullName
+        cell.textLabel?.text = employee.name
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
         if let birthday = employee.employeeInformation?.birthday {
-            cell.textLabel?.text = "\(employee.fullName ?? "")    \(dateFormatter.string(from: birthday))"
+            cell.textLabel?.text = "\(employee.name ?? "")    \(dateFormatter.string(from: birthday))"
         }
-        cell.backgroundColor = UIColor.tealColor
+        cell.backgroundColor = UIColor.darkRose
         cell.textLabel?.textColor = .white
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         return cell
@@ -103,7 +103,7 @@ class EmployeesVC: UITableViewController, CreateEmployeeDelegate {
 //        }
         
         label.backgroundColor = UIColor.lightBlue
-        label.textColor = UIColor.darkBlue
+        label.textColor = UIColor.darkGray
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.text = employeeTypes[section]
 //        label.snp.makeConstraints { (make) in

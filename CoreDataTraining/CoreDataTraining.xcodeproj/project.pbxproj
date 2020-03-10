@@ -534,7 +534,7 @@
 				D7DE30AA240EB09800FD53D6 /* CoreDataTrainingModels_v1.1.xcdatamodel */,
 				D704F6842406BB660037B53E /* CoreDataTrainingModels.xcdatamodel */,
 			);
-			currentVersion = D7DE30AB240EC4E600FD53D6 /* CoreDataTrainingModels_v1. 3.xcdatamodel */;
+			currentVersion = D704F6842406BB660037B53E /* CoreDataTrainingModels.xcdatamodel */;
 			path = CoreDataTrainingModels.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

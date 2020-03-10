@@ -69,7 +69,7 @@ class CompaniesAutoUpdateVC: UITableViewController, NSFetchedResultsControllerDe
             UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(handleAdd)),
             UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(handleDelete))
         ]
-        tableView.backgroundColor = UIColor.darkBlue
+        tableView.backgroundColor = UIColor.darkGray
         tableView.register(CompanyCell.self, forCellReuseIdentifier: reuseId)
         
         let refreshControll = UIRefreshControl()

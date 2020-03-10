@@ -52,7 +52,7 @@ struct Service {
                     jsonCompany.employees?.forEach({ (jsonEmployee) in
                         print("  \(jsonEmployee.name)")
                         let employee = Employee(context: privateContext)
-                        employee.fullName = jsonEmployee.name
+                        employee.name = jsonEmployee.name
                         employee.type = jsonEmployee.type
                         
                         let employeeInformation = EmployeeInformation(context: privateContext)

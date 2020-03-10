@@ -48,7 +48,7 @@ class CompaniesVC: UITableViewController {
                 
                 companies.forEach({ (company) in
                     print(company.name ?? "")
-                    company.name = "D: \(company.name ?? "")"
+                    company.name = "Updated \(company.name ?? "")"
                 })
                 
                 do {
@@ -167,7 +167,7 @@ class CompaniesVC: UITableViewController {
     }
     
     func setupTableViewStyle() {
-        tableView.backgroundColor = UIColor.darkBlue
+        tableView.backgroundColor = UIColor.darkGray
         tableView.separatorColor = .white
         tableView.tableFooterView = UIView()
     }
