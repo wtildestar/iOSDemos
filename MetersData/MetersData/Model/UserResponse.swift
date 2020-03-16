@@ -1,0 +1,15 @@
+//
+//  UserResponse.swift
+//  MetersData
+//
+//  Created by wtildestar on 15/03/2020.
+//  Copyright © 2020 wtildestar. All rights reserved.
+//
+
+import Foundation
+
+struct UserResponse: Codable {
+    let isSuccess: Bool
+    let data: String
+    let typeAccount: String
+}

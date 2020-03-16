@@ -72,7 +72,11 @@
                         <viewLayoutGuide key="safeArea" id="7xK-Fy-Gi2"/>
                     </view>
                     <navigationItem key="navigationItem" id="81D-QQ-YgH">
-                        <barButtonItem key="rightBarButtonItem" title="Войти" id="V2A-QB-fVF"/>
+                        <barButtonItem key="rightBarButtonItem" title="Войти" id="V2A-QB-fVF">
+                            <connections>
+                                <action selector="pressLoginButton:" destination="IiH-4u-xTZ" id="v9l-NY-K66"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="loginTextField" destination="4sW-Na-9kY" id="baC-VB-vrb"/>
@@ -82,6 +86,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umF-Uy-hCq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076.8115942028987" y="176.78571428571428"/>
+        </scene>
+        <!--Передача показаний-->
+        <scene sceneID="kdg-U9-Rlj">
+            <objects>
+                <tableViewController id="enj-CS-DgH" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IVF-fJ-PV5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Zcp-8Q-Rv4">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zcp-8Q-Rv4" id="BeT-NP-Ia0">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="enj-CS-DgH" id="wHZ-8a-Tnx"/>
+                            <outlet property="delegate" destination="enj-CS-DgH" id="UGY-pQ-QU7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Передача показаний" id="b7d-40-4tm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="3Ib-Bt-jK2"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t9y-bX-pKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1982" y="178"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7t7-g5-Qbp">

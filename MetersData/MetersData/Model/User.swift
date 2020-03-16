@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User {
+struct User: Encodable {
     var emailOrPhone: String
     var password: String
     var isMobile: Bool
