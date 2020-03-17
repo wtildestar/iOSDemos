@@ -22,6 +22,7 @@
 		D7E59DCF241F805000FC48B8 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DCE241F805000FC48B8 /* PersistenceManager.swift */; };
 		D7E59DD3241F923600FC48B8 /* Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DD2241F923500FC48B8 /* Counters.swift */; };
 		D7E59DD5241FD0AE00FC48B8 /* CountersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DD4241FD0AE00FC48B8 /* CountersViewController.swift */; };
+		D7E59DD824209F1400FC48B8 /* CountersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DD724209F1400FC48B8 /* CountersViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D7E59DCE241F805000FC48B8 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		D7E59DD2241F923500FC48B8 /* Counters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counters.swift; sourceTree = "<group>"; };
 		D7E59DD4241FD0AE00FC48B8 /* CountersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersViewController.swift; sourceTree = "<group>"; };
+		D7E59DD724209F1400FC48B8 /* CountersViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		D7E59DB4241D28AF00FC48B8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D7E59DD624209EB300FC48B8 /* Cells */,
 				D7E59DB2241D28A900FC48B8 /* AuthViewController.swift */,
 				D7E59DD4241FD0AE00FC48B8 /* CountersViewController.swift */,
 			);
@@ -156,6 +159,14 @@
 				D7E59DC6241E065500FC48B8 /* MDAlertVC.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		D7E59DD624209EB300FC48B8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D7E59DD724209F1400FC48B8 /* CountersViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 				D7E59DB9241D2DFC00FC48B8 /* NetworkManager.swift in Sources */,
 				D7E59DCF241F805000FC48B8 /* PersistenceManager.swift in Sources */,
 				D7E59D9F241D1D4D00FC48B8 /* AppDelegate.swift in Sources */,
+				D7E59DD824209F1400FC48B8 /* CountersViewCell.swift in Sources */,
 				D7E59DD3241F923600FC48B8 /* Counters.swift in Sources */,
 				D7E59DB3241D28A900FC48B8 /* AuthViewController.swift in Sources */,
 				D7E59DD5241FD0AE00FC48B8 /* CountersViewController.swift in Sources */,

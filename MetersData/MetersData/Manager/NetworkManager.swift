@@ -68,13 +68,13 @@ class NetworkManager {
     func getCounters(completed: @escaping (Result<Data, MDError>) -> Void) {
         let endPoint = baseURL + "/api/Counters/GetList?roomId=5006"
         
-        guard let url = URL(string: endPoint), let userResponse = userResponse else {
+        guard let url = URL(string: endPoint) else {
                 completed(.failure(.invalidUrl))
                 return
         }
 
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
+        urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
         urlRequest.addValue("1", forHTTPHeaderField: "version")
         urlRequest.addValue("Bearer 89dabb6d-bf81-4202-ae39-be0f3830c1db", forHTTPHeaderField: "authorization")
@@ -98,6 +98,7 @@ class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let counters = try decoder.decode(Data.self, from: data)
+                print("success")
                 completed(.success(counters))
                 
             } catch {

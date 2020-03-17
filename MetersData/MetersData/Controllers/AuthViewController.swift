@@ -40,8 +40,6 @@ class AuthViewController: UIViewController {
         user = User(emailOrPhone: login, password: password, isMobile: true)
         sendUser()
         
-//        PersistenceManager.save(userResponse: )
-        
         let CountersVC = CountersViewController()
         navigationController?.pushViewController(CountersVC, animated: true)
     }
@@ -55,5 +53,6 @@ class AuthViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }

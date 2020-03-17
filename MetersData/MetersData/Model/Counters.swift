@@ -14,16 +14,17 @@ struct Data: Codable {
 }
 
 struct Counters: Codable {
-    let lastValue: String
-    let type: Type
+    let id: Int
+    let lastValue: String?
+    let type: Type?
 }
 
 struct Type: Codable {
-    let unit: String
-    let equipmentSection: EquipmentSection
+    let unit: String?
+    let equipmentSection: EquipmentSection?
 }
 
 struct EquipmentSection: Codable {
-    let title: String
-    let image: String
+    let title: String?
+    let image: String?
 }
