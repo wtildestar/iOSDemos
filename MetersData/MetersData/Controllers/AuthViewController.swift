@@ -2,7 +2,7 @@
 //  AuthViewController.swift
 //  MetersData
 //
-//  Created by wtildestar on 14/03/2020.
+//  Created by wtildestar on 15/03/2020.
 //  Copyright © 2020 wtildestar. All rights reserved.
 //
 
@@ -43,16 +43,5 @@ class AuthViewController: UIViewController {
         let CountersVC = CountersViewController()
         navigationController?.pushViewController(CountersVC, animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 
 }

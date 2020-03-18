@@ -11,54 +11,48 @@ import UIKit
 class CountersViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    //    var counters: [Counters] = []
-    var counters: [Counters]?
+    var counters:                 [Counters]?
+    var counterNewValue:          CounterNewValue?
+    var countersViewCell:         CountersViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         getCounters()
-        
-// tableView.register(CountersViewCell.self, forCellReuseIdentifier: "CountersViewCell")
     }
 
     func getCounters() {
-        NetworkManager.shared.getCounters() { result in
-//            guard let self = self else { return }
-            
-//            print(result)
+        NetworkManager.shared.getCounters() { [weak self] result in
+            guard let self = self else { return }
+
             switch result {
             case .success(let counters):
                 self.counters = counters.data
-                print(counters.data)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             case .failure(let error):
                 print(error)
             }
-            
         }
     }
-}
-
-// MARK: - Table view data source
-
-extension CountersViewController: UITableViewDataSource, UITableViewDelegate {
-
-        func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
+    
+    func sendCounter() {
+        guard let counterNewValue = counterNewValue else { return }
+        NetworkManager.shared.sendCounters(counterNewValue: counterNewValue) { error in
+            if let error = error {
+                print(error)
+            }
         }
-
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return counters?.count ?? 0
-        }
-
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CountersViewCell") as! CountersViewCell
-            
-            let counter = counters?[indexPath.row]
-            cell.set(counters: counter!)
-            return cell
-        }
+    }
+    
+    @IBAction func sendCountersActionButton(_ sender: UIBarButtonItem) {
+        guard
+            let id = Int(self.countersViewCell?.counterId.text ?? "0"),
+            let val1Str = self.countersViewCell?.lastValueTextFieldOne.text,
+            let val2Str = self.countersViewCell?.lastValueTextFieldTwo.text else { return }
+        counterNewValue = CounterNewValue(id: id, val1Str: val1Str, val2Str: val2Str)
+        sendCounter()
+        print("counters was sended")
+    }
 }

@@ -6,14 +6,13 @@
 //  Copyright © 2020 wtildestar. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     static let shared  = NetworkManager()
     let baseURL        = "https://test1.prod2.wellsoft.pro"
+    let cache          = NSCache<NSString, UIImage>()
     private init() {}
-    
-    var userResponse: UserResponse?
     
     func sendUser(user: User, completed: @escaping (Result<UserResponse, MDError>) -> Void) {
         let endPoint = baseURL + "/login/enterpassword"
@@ -98,7 +97,6 @@ class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let counters = try decoder.decode(Data.self, from: data)
-                print("success")
                 completed(.success(counters))
                 
             } catch {
@@ -107,5 +105,68 @@ class NetworkManager {
         }
 
         task.resume()
+    }
+    
+    func downloadImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {
+        
+        let cacheKey = NSString(string: urlString)
+        
+        guard let url = URL(string: urlString) else {
+            completed(nil)
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            guard let self = self,
+                error == nil,
+                let response = response as? HTTPURLResponse, response.statusCode == 200,
+                let data = data,
+                
+                let image = UIImage(data: data) else {
+                    completed(nil)
+                    return
+                }
+            
+            self.cache.setObject(image, forKey: cacheKey)
+            completed(image)
+        }
+        
+        task.resume()
+    }
+    
+    func sendCounters(counterNewValue: CounterNewValue, completed: @escaping (MDError?) -> Void) {
+        let endPoint = baseURL + "/api/Counters/AddCounterValues"
+
+        guard let url = URL(string: endPoint) else {
+            completed(.invalidUrl)
+            return
+        }
+
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
+        
+        let parameterDictionary: [String : Any] = [
+            "id"      : counterNewValue.id,
+            "val1Str" : counterNewValue.val1Str ?? "",
+            "val2Str" : counterNewValue.val2Str ?? ""
+        ]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return
+        }
+        urlRequest.httpBody = httpBody
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { _, _, error in
+            if let _ = error {
+                completed(.unableToComplete)
+                return
+            }
+        }
+
+        task.resume()
+        
     }
 }
