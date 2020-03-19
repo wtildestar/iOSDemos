@@ -18,10 +18,7 @@
 		D7E59DB9241D2DFC00FC48B8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DB8241D2DFC00FC48B8 /* NetworkManager.swift */; };
 		D7E59DBC241D2EAE00FC48B8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DBB241D2EAE00FC48B8 /* User.swift */; };
 		D7E59DBE241DEDE300FC48B8 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DBD241DEDE300FC48B8 /* UserResponse.swift */; };
-		D7E59DC4241E05D800FC48B8 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DC3241E05D800FC48B8 /* UIViewController+Ext.swift */; };
-		D7E59DC7241E065500FC48B8 /* MDAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DC6241E065500FC48B8 /* MDAlertVC.swift */; };
 		D7E59DCD241F773E00FC48B8 /* MDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DCC241F773E00FC48B8 /* MDError.swift */; };
-		D7E59DCF241F805000FC48B8 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DCE241F805000FC48B8 /* PersistenceManager.swift */; };
 		D7E59DD3241F923600FC48B8 /* Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DD2241F923500FC48B8 /* Counters.swift */; };
 		D7E59DD5241FD0AE00FC48B8 /* CountersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DD4241FD0AE00FC48B8 /* CountersViewController.swift */; };
 		D7E59DD824209F1400FC48B8 /* CountersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DD724209F1400FC48B8 /* CountersViewCell.swift */; };
@@ -41,10 +38,7 @@
 		D7E59DB8241D2DFC00FC48B8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D7E59DBB241D2EAE00FC48B8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D7E59DBD241DEDE300FC48B8 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
-		D7E59DC3241E05D800FC48B8 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		D7E59DC6241E065500FC48B8 /* MDAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDAlertVC.swift; sourceTree = "<group>"; };
 		D7E59DCC241F773E00FC48B8 /* MDError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDError.swift; sourceTree = "<group>"; };
-		D7E59DCE241F805000FC48B8 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		D7E59DD2241F923500FC48B8 /* Counters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counters.swift; sourceTree = "<group>"; };
 		D7E59DD4241FD0AE00FC48B8 /* CountersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersViewController.swift; sourceTree = "<group>"; };
 		D7E59DD724209F1400FC48B8 /* CountersViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersViewCell.swift; sourceTree = "<group>"; };
@@ -80,8 +74,6 @@
 		D7E59D9D241D1D4D00FC48B8 /* MetersData */ = {
 			isa = PBXGroup;
 			children = (
-				D7E59DC5241E063400FC48B8 /* UI */,
-				D7E59DC2241E05BE00FC48B8 /* Extensions */,
 				D7E59DBF241DEEA700FC48B8 /* Utilities */,
 				D7E59DBA241D2EA400FC48B8 /* Model */,
 				D7E59DB7241D2DF200FC48B8 /* Manager */,
@@ -127,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				D7E59DB8241D2DFC00FC48B8 /* NetworkManager.swift */,
-				D7E59DCE241F805000FC48B8 /* PersistenceManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -149,22 +140,6 @@
 				D7E59DCC241F773E00FC48B8 /* MDError.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		D7E59DC2241E05BE00FC48B8 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D7E59DC3241E05D800FC48B8 /* UIViewController+Ext.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D7E59DC5241E063400FC48B8 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				D7E59DC6241E065500FC48B8 /* MDAlertVC.swift */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		D7E59DD624209EB300FC48B8 /* Cells */ = {
@@ -248,7 +223,6 @@
 			files = (
 				D76818B12422446300F45DFE /* CounterViewController+Ext.swift in Sources */,
 				D7E59DB9241D2DFC00FC48B8 /* NetworkManager.swift in Sources */,
-				D7E59DCF241F805000FC48B8 /* PersistenceManager.swift in Sources */,
 				D7E59D9F241D1D4D00FC48B8 /* AppDelegate.swift in Sources */,
 				D76818AF24217EBC00F45DFE /* CounterNewValue.swift in Sources */,
 				D7E59DD824209F1400FC48B8 /* CountersViewCell.swift in Sources */,
@@ -256,10 +230,8 @@
 				D7E59DB3241D28A900FC48B8 /* AuthViewController.swift in Sources */,
 				D7E59DD5241FD0AE00FC48B8 /* CountersViewController.swift in Sources */,
 				D7E59DCD241F773E00FC48B8 /* MDError.swift in Sources */,
-				D7E59DC7241E065500FC48B8 /* MDAlertVC.swift in Sources */,
 				D7E59DBC241D2EAE00FC48B8 /* User.swift in Sources */,
 				D7E59DA1241D1D4D00FC48B8 /* SceneDelegate.swift in Sources */,
-				D7E59DC4241E05D800FC48B8 /* UIViewController+Ext.swift in Sources */,
 				D7E59DBE241DEDE300FC48B8 /* UserResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

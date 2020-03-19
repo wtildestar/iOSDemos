@@ -61,7 +61,6 @@ class NetworkManager {
         }
 
         task.resume()
-        
     }
     
     func getCounters(completed: @escaping (Result<Data, MDError>) -> Void) {
@@ -71,12 +70,16 @@ class NetworkManager {
                 completed(.failure(.invalidUrl))
                 return
         }
-
+        
+        let defaults = UserDefaults.standard
+        let savedToken = defaults.string(forKey: "token")
+        
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
         urlRequest.addValue("1", forHTTPHeaderField: "version")
-        urlRequest.addValue("Bearer 89dabb6d-bf81-4202-ae39-be0f3830c1db", forHTTPHeaderField: "authorization")
+        urlRequest.addValue(("\(savedToken!)"), forHTTPHeaderField: "authorization")
+//        urlRequest.addValue("Bearer 89dabb6d-bf81-4202-ae39-be0f3830c1db", forHTTPHeaderField: "authorization")
         
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let _ = error {
@@ -101,6 +104,7 @@ class NetworkManager {
                 
             } catch {
                 completed(.failure(.invalidData))
+                print("Invalid token data save", error)
             }
         }
 
@@ -117,7 +121,6 @@ class NetworkManager {
         }
         
         let request = URLRequest(url: url)
-        
         
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             guard let self = self,
@@ -167,6 +170,5 @@ class NetworkManager {
         }
 
         task.resume()
-        
     }
 }

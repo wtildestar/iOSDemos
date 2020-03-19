@@ -13,6 +13,7 @@ import UIKit
 extension CountersViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return counters?.count ?? 0
     }
     
@@ -28,12 +29,13 @@ extension CountersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountersViewCell") as! CountersViewCell
-        
-        let counter = counters?[indexPath.row]
+
+        let counter = counters?[indexPath.section]
         cell.set(counters: counter!)
         
         cell.layer.borderColor = UIColor.systemGreen.cgColor

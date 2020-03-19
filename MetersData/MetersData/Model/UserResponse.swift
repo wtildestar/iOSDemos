@@ -10,6 +10,6 @@ import Foundation
 
 struct UserResponse: Codable {
     let isSuccess: Bool
-    let data: String
+    var data: String
     let typeAccount: String
 }

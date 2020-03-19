@@ -10,9 +10,7 @@ import UIKit
 
 class CountersViewCell: UITableViewCell {
     
-    var counters: Counters?
-    var emptyImage = UIImage(named: "empty_img")
-    
+    // MARK: - Outlets
     @IBOutlet weak var counterImageView: UIImageView!
     @IBOutlet weak var counterId: UILabel!
     @IBOutlet weak var counterTitle: UILabel!
@@ -20,6 +18,10 @@ class CountersViewCell: UITableViewCell {
     @IBOutlet weak var lastValueTextFieldOne: UITextField!
     @IBOutlet weak var lastValueTextFieldTwo: UITextField!
     
+    // MARK: - Properties
+    var emptyImage = UIImage(named: "empty_img")
+    
+    // MARK: - Methods
     func set(counters: Counters) {
         if let imgUrl = counters.type?.equipmentSection?.image {
             getImg(url: imgUrl)
@@ -48,5 +50,5 @@ class CountersViewCell: UITableViewCell {
             }
         }
     }
-
+    
 }
