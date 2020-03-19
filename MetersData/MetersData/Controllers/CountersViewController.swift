@@ -59,18 +59,18 @@ class CountersViewController: UIViewController {
         }
     }
     
-    private func takeIndex(for index: IndexPath) {
-//        let cell = counterTableView.dequeueReusableCell(withIdentifier: "CountersViewCell", for: index) as? CountersViewCell
-        let cell = counterTableView.cellForRow(at: index) as? CountersViewCell
-        
-    }
+//    private func takeIndex(for index: IndexPath) {
+////        let cell = counterTableView.dequeueReusableCell(withIdentifier: "CountersViewCell", for: index) as? CountersViewCell
+//        let cell = counterTableView.cellForRow(at: index) as? CountersViewCell
+//
+//    }
     
     @IBAction func sendCountersActionButton(_ sender: UIBarButtonItem) {
         guard let counters = counters else { return }
         var count = 0
         
         for element in counters {
-        let index = IndexPath(row: 0, section: count)
+            let index = IndexPath(row: 0, section: count)
             let cell = counterTableView.cellForRow(at: index) as? CountersViewCell
             
             //                if element.id == Int(cell.counterId.text!) {
@@ -82,25 +82,25 @@ class CountersViewController: UIViewController {
             
             var newValue1 = cell?.lastValueTextFieldOne.text
             var newValue2 = cell?.lastValueTextFieldTwo.text
+//
+//            if cell?.lastValueTextFieldOne == nil {
+//                newValue1 = "0"
+//            }
+//            if cell?.lastValueTextFieldTwo == nil {
+//                newValue2 = "0"
+//            }
+//
+//            guard
+//                let valx1 = val1,
+//                let valx2 = val2,
+//                let newValuex1 = newValue1,
+//                let newValuex2 = newValue2 else {
+//                    return
+//            }
             
-            if cell?.lastValueTextFieldOne == nil {
-                newValue1 = "0"
-            }
-            if cell?.lastValueTextFieldTwo == nil {
-                newValue2 = "0"
-            }
-            
-            guard
-                let valx1 = val1,
-                let valx2 = val2,
-                let newValuex1 = newValue1,
-                let newValuex2 = newValue2 else {
-                    return
-            }
-            
-            print("val1", valx1, "val2", valx2, "newValue1", newValuex1, "newValue2", newValuex2)
-            if val1 != newValuex1 || val2 != newValuex2 {
-                let newVal1Str = "\(newValuex1).\(newValuex2)"
+//            print("val1", valx1, "val2", valx2, "newValue1", newValuex1, "newValue2", newValuex2)
+            if val1 != newValue1 ?? "0" || val2 != newValue2 ?? "0" {
+                let newVal1Str = "\(newValue1).\(newValue2)"
                 let counterModel = CounterNewValue(id: element.id, val1Str: newVal1Str, val2Str: "0")
                 sendCounter(counterModel: counterModel)
                 print("counters was sended", counterModel)
