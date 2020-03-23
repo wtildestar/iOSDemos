@@ -38,7 +38,7 @@ class AuthViewController: UIViewController {
         if segue.identifier == "CountersSegue" {
             user = User(emailOrPhone: login, password: password, isMobile: true)
             sendUser()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
                 UserDefaults.standard.set(self.userResponse!.data, forKey: "token")
             }
         }

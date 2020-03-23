@@ -125,6 +125,7 @@
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjg-NG-QqY">
                                                             <rect key="frame" x="56" y="76" width="123" height="37"/>
                                                             <color key="backgroundColor" red="0.90980392156862744" green="0.9137254901960784" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="val1"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="37" id="MTQ-PZ-T7s"/>
                                                                 <constraint firstAttribute="width" constant="191" id="ney-80-Njs">
@@ -134,7 +135,7 @@
                                                                 </constraint>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
                                                                     <exclude reference="MTQ-PZ-T7s"/>
@@ -145,10 +146,14 @@
                                                                     <include reference="MTQ-PZ-T7s"/>
                                                                 </mask>
                                                             </variation>
+                                                            <connections>
+                                                                <action selector="textFieldValueChanged:" destination="Xue-eJ-rU7" eventType="editingDidEnd" id="iYD-fK-aDo"/>
+                                                            </connections>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OC0-uJ-czc">
                                                             <rect key="frame" x="192" y="76" width="65" height="37"/>
                                                             <color key="backgroundColor" red="0.90980392156862744" green="0.9137254901960784" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="val2"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="34" id="52D-Or-afc">
                                                                     <variation key="heightClass=regular-widthClass=compact" constant="37"/>
@@ -158,7 +163,7 @@
                                                                 </constraint>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
                                                                     <exclude reference="52D-Or-afc"/>
@@ -315,7 +320,6 @@
         <!--Navigation Controller-->
         <scene sceneID="HI3-pF-naG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wq9-9F-K4P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="901-H4-1V4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="xu5-zD-fhN"/>
@@ -328,6 +332,7 @@
                         <segue destination="ggj-TN-p4G" kind="relationship" relationship="rootViewController" id="5f6-kk-nkt"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wq9-9F-K4P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="176.78571428571428"/>
         </scene>

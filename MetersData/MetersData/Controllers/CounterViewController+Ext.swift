@@ -21,11 +21,17 @@ extension CountersViewController: UITableViewDataSource, UITableViewDelegate {
         return 40
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let headerView = UIView()
+//        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! CountersViewCell
+//        header.tapHandler = { [unowned self] _ in
+//            print(self.counters![section].id)
+//        }
+//        return header
+//
+////        headerView.backgroundColor = UIColor.clear
+////        return headerView
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -42,7 +48,21 @@ extension CountersViewController: UITableViewDataSource, UITableViewDelegate {
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 10
         cell.clipsToBounds = true
+        let countersTextField = CountersTextField()
+        countersTextField.tapHandler = { [unowned self] _ in
+            print(self.counters![indexPath.section].id)
+        }
         
         return cell
+    }
+}
+
+public extension UITableView {
+
+    func indexPathForView(_ view: UIView) -> IndexPath? {
+        let center = view.center
+        let viewCenter = self.convert(center, from: view.superview)
+        let indexPath = self.indexPathForRow(at: viewCenter)
+        return indexPath
     }
 }

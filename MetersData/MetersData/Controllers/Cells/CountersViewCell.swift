@@ -20,7 +20,7 @@ class CountersViewCell: UITableViewCell {
     
     // MARK: - Properties
     var emptyImage = UIImage(named: "empty_img")
-    
+
     // MARK: - Methods
     func set(counters: Counters) {
         if let imgUrl = counters.type?.equipmentSection?.image {
@@ -50,5 +50,4 @@ class CountersViewCell: UITableViewCell {
             }
         }
     }
-    
 }
