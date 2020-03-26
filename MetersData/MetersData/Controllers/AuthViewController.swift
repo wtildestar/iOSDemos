@@ -32,15 +32,20 @@ class AuthViewController: UIViewController {
             }
         }
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let login = loginTextField.text, let password = passwordTextField.text else { return }
         if segue.identifier == "CountersSegue" {
             user = User(emailOrPhone: login, password: password, isMobile: true)
             sendUser()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 UserDefaults.standard.set(self.userResponse!.data, forKey: "token")
             }
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
+

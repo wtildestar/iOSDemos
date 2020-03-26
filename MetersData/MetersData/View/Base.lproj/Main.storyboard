@@ -289,12 +289,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="xjX-xw-vzS" id="PHi-5y-Ske"/>
-                        <outlet property="counterTableView" destination="59D-L8-mq3" id="yMa-Y5-Drr"/>
+                        <outlet property="tableView" destination="59D-L8-mq3" id="yMa-Y5-Drr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCv-WU-1e6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2868.115942028986" y="176.78571428571428"/>
+            <point key="canvasLocation" x="2868" y="176.76161919040482"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7t7-g5-Qbp">

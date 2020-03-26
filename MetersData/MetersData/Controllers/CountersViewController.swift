@@ -11,7 +11,7 @@ import UIKit
 class CountersViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var counterTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
@@ -24,20 +24,17 @@ class CountersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
             self.getCounters()
         }
         
-        setupTextField()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        tapView()
+        setupView()
+        setupRefreshController()
     }
 
     // MARK: - Methods
     func getCounters() {
-//        guard let userResponse = userResponse else { return }
         NetworkManager.shared.getCounters() { [weak self] result in
             guard let self = self else { return }
 
@@ -45,53 +42,86 @@ class CountersViewController: UIViewController {
             case .success(let counters):
                 self.counters = counters.data
                 DispatchQueue.main.async {
-                    self.counterTableView.reloadData()
+                    self.tableView.reloadData()
                 }
             case .failure(let error):
                 print(error)
             }
         }
+        tableView.refreshControl?.endRefreshing()
         activityIndicator.stopAnimating()
         let ud = UserDefaults.standard.string(forKey: "token")
         print(ud!)
     }
     
-    func sendCounter(counterModel: CounterNewValue?) {
-        guard let counterModel = counterModel else { return }
-        NetworkManager.shared.sendCounters(counterNewValue: counterModel) { error in
+    func sendCounter() {
+//        guard let counterModel = counterModel else { return }
+        NetworkManager.shared.sendCounters() { error in
             if let error = error {
+                DispatchQueue.main.async {
+                    self.showAlertSendingError()
+                }
                 print(error)
             }
         }
     }
     
-    func setupTextField() {
-        let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: .init(width: view.frame.size.width, height: 30)))
-        let  flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
-        toolbar.setItems([flexSpace, doneBtn], animated: false)
-        toolbar.sizeToFit()
-        
-        let cell = counterTableView.dequeueReusableCell(withIdentifier: "CountersViewCell") as? CountersViewCell
-        
-        cell?.lastValueTextFieldOne.inputAccessoryView = toolbar
-        cell?.lastValueTextFieldTwo.inputAccessoryView = toolbar
+    private func showAlertSendingError() {
+        let alertController = UIAlertController(title: "Sending error", message: "Unable to send counters data to server", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alertController.addAction(action)
+        self.present(alertController, animated: true)
     }
     
-    @objc func doneButtonAction() {
-        self.view.endEditing(true)
+    private func showAlertSendingSuccess() {
+        let alertController = UIAlertController(title: "Sending succefully", message: "Your counters sended completed to server", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alertController.addAction(action)
+        self.present(alertController, animated: true)
     }
     
-//    private func takeIndex(for index: IndexPath) {
-//        let cell = counterTableView.dequeueReusableCell(withIdentifier: "CountersViewCell", for: index) as? CountersViewCell
-//        let cell = counterTableView.cellForRow(at: index) as? CountersViewCell
-//    }
+    func showAlertSendingEmpty() {
+        let alertController = UIAlertController(title: "Nothing to send", message: "Your counters aren't changed, please edit them", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alertController.addAction(action)
+        self.present(alertController, animated: true)
+    }
+    
+    private func tapView() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
+    
+    private func setupView() {
+        tableView.keyboardDismissMode = .interactive
+        title = "Counters"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    @objc private func handleRefresh() {
+        getCounters()
+        sendingCounters = []
+    }
+    
+    private func setupRefreshController() {
+        let refreshControll = UIRefreshControl()
+        refreshControll.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        refreshControll.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControll.attributedTitle = NSAttributedString(string: "Получение данных счетчиков...")
+        tableView.refreshControl = refreshControll
+    }
     
     @IBAction func sendCountersActionButton(_ sender: UIBarButtonItem) {
+//        if !sendingCounters.isEmpty {
+//            for counter in sendingCounters {
+                sendCounter()
+//            }
+            showAlertSendingSuccess()
+//        } else {
+//            showAlertSendingEmpty()
+//        }
         
-        for item in sendingCounters {
-            sendCounter(counterModel: item)
-        }
+        
 //        guard let counters = counters else { return }
 //        var count = 0
 //
@@ -135,10 +165,3 @@ class CountersViewController: UIViewController {
     }
 }
 
-//extension CountersViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//
-//        return false
-//    }
-//}

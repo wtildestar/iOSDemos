@@ -14,4 +14,5 @@ enum MDError: String, Error {
     case invalidResponse    = "Invalid response from the server. Please try again."
     case invalidData        = "The data received from the server was invalid. Please try again."
     case invalidToUserResponse = "There was an error retrieving Bearer Token. Please try again."
+    case unableToSend       = "Unable to complete your sending request. Please check your internet connection."
 }

@@ -10,6 +10,9 @@
 		D76818AF24217EBC00F45DFE /* CounterNewValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76818AE24217EBC00F45DFE /* CounterNewValue.swift */; };
 		D76818B12422446300F45DFE /* CounterViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76818B02422446300F45DFE /* CounterViewController+Ext.swift */; };
 		D76818B324276D3A00F45DFE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76818B224276D3900F45DFE /* HeaderView.swift */; };
+		D76818B7242C5BDA00F45DFE /* MDAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76818B6242C5BDA00F45DFE /* MDAlertViewController.swift */; };
+		D76818B9242C5C5000F45DFE /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76818B8242C5C5000F45DFE /* AlertViewController.swift */; };
+		D76818BB242C5C7C00F45DFE /* AlertViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76818BA242C5C7C00F45DFE /* AlertViewController.storyboard */; };
 		D7E59D9F241D1D4D00FC48B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59D9E241D1D4D00FC48B8 /* AppDelegate.swift */; };
 		D7E59DA1241D1D4D00FC48B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E59DA0241D1D4D00FC48B8 /* SceneDelegate.swift */; };
 		D7E59DA6241D1D4E00FC48B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E59DA4241D1D4E00FC48B8 /* Main.storyboard */; };
@@ -29,6 +32,9 @@
 		D76818AE24217EBC00F45DFE /* CounterNewValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterNewValue.swift; sourceTree = "<group>"; };
 		D76818B02422446300F45DFE /* CounterViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CounterViewController+Ext.swift"; sourceTree = "<group>"; };
 		D76818B224276D3900F45DFE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D76818B6242C5BDA00F45DFE /* MDAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDAlertViewController.swift; sourceTree = "<group>"; };
+		D76818B8242C5C5000F45DFE /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		D76818BA242C5C7C00F45DFE /* AlertViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertViewController.storyboard; sourceTree = "<group>"; };
 		D7E59D9B241D1D4D00FC48B8 /* MetersData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetersData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7E59D9E241D1D4D00FC48B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7E59DA0241D1D4D00FC48B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +100,8 @@
 				D7E59DB2241D28A900FC48B8 /* AuthViewController.swift */,
 				D7E59DD4241FD0AE00FC48B8 /* CountersViewController.swift */,
 				D76818B02422446300F45DFE /* CounterViewController+Ext.swift */,
+				D76818B6242C5BDA00F45DFE /* MDAlertViewController.swift */,
+				D76818B8242C5C5000F45DFE /* AlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -113,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				D7E59DA4241D1D4E00FC48B8 /* Main.storyboard */,
+				D76818BA242C5C7C00F45DFE /* AlertViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 				D7E59DAB241D1D5000FC48B8 /* LaunchScreen.storyboard in Resources */,
 				D7E59DA8241D1D5000FC48B8 /* Assets.xcassets in Resources */,
 				D7E59DA6241D1D4E00FC48B8 /* Main.storyboard in Resources */,
+				D76818BB242C5C7C00F45DFE /* AlertViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +236,7 @@
 			files = (
 				D76818B12422446300F45DFE /* CounterViewController+Ext.swift in Sources */,
 				D7E59DB9241D2DFC00FC48B8 /* NetworkManager.swift in Sources */,
+				D76818B7242C5BDA00F45DFE /* MDAlertViewController.swift in Sources */,
 				D7E59D9F241D1D4D00FC48B8 /* AppDelegate.swift in Sources */,
 				D76818AF24217EBC00F45DFE /* CounterNewValue.swift in Sources */,
 				D7E59DD824209F1400FC48B8 /* CountersViewCell.swift in Sources */,
@@ -236,6 +247,7 @@
 				D7E59DBC241D2EAE00FC48B8 /* User.swift in Sources */,
 				D7E59DA1241D1D4D00FC48B8 /* SceneDelegate.swift in Sources */,
 				D7E59DBE241DEDE300FC48B8 /* UserResponse.swift in Sources */,
+				D76818B9242C5C5000F45DFE /* AlertViewController.swift in Sources */,
 				D76818B324276D3A00F45DFE /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

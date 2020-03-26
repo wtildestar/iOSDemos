@@ -52,12 +52,22 @@ extension CountersViewController: UITableViewDataSource, UITableViewDelegate {
     @objc func tfEdited(sender: AnyObject) {
         
         let index = sender.tag
-        let cell = counterTableView.cellForRow(at: IndexPath(row: 0, section: index!)) as? CountersViewCell
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: index!)) as? CountersViewCell
         
-        let tf1 = cell?.lastValueTextFieldOne.text
-        let tf2 = cell?.lastValueTextFieldTwo.text
+        var tf1 = cell?.lastValueTextFieldOne.text
+        var tf2 = cell?.lastValueTextFieldTwo.text
+        let counterId  = Int((cell?.counterId.text)!)
+              
+        if cell?.lastValueTextFieldOne.text == "" {
+            tf1 = "0"
+        }
+        if cell?.lastValueTextFieldTwo.text == "" {
+            tf2 = "0"
+        }
         
-        let counterNewValue = CounterNewValue(id: Int((cell?.counterId.text)!)!, val1Str: tf1! + "." + tf2!, val2Str: "0")
+        guard let tfOne = tf1, let tfTwo = tf2, let id = counterId else { return }
+
+        let counterNewValue = CounterNewValue(id: id, val1Str: tfOne + "." + tfTwo, val2Str: "0")
         
         if sendingCounters.contains(counterNewValue) {
             print("sendingCounters Contains counterNewValue", counterNewValue)
