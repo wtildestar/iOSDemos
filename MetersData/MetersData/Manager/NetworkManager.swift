@@ -142,96 +142,34 @@ class NetworkManager {
     
     func sendCounters(completed: @escaping (MDError?) -> Void) {
         
-        
-        let url = URL(string: "https://test1.prod2.wellsoft.pro/api/counters/addcountervalues")
-        guard let requestUrl = url else { fatalError() }
-        var request = URLRequest(url: requestUrl)
-        request.httpMethod = "POST"
-        // Set HTTP Request Header
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let counterNewValue = CounterNewValue(id: 2046, val1Str: "100000.15", val2Str: "0")
-        let jsonData = try! JSONEncoder().encode(counterNewValue)
-        request.httpBody = jsonData
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            if let error = error {
-                print("Error took place \(error)")
+        let endPoint = baseURL + "api/Counters/AddCounterValues"
+
+        guard let url = URL(string: endPoint) else {
+            completed(.invalidUrl)
+            return
+        }
+
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
+
+        let parameterDictionary: [String : Any] = [
+            "id"      : counterNewValue.id,
+            "val1Str" : counterNewValue.val1Str ?? "",
+            "val2Str" : counterNewValue.val2Str ?? ""
+        ]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return
+        }
+        urlRequest.httpBody = httpBody
+
+        let task = URLSession.shared.dataTask(with: urlRequest) { _, _, error in
+            if let _ = error {
+                completed(.unableToComplete)
                 return
             }
-            guard let data = data else {return}
-            do{
-                let counterNewValueModel = try JSONDecoder().decode(CounterNewValue.self, from: data)
-                print("Response data:\n \(counterNewValueModel.id)")
-                print("todoItemModel Title: \(counterNewValueModel.val1Str)")
-                print("todoItemModel id: \(counterNewValueModel.val2Str)")
-            }catch let jsonErr{
-                print(jsonErr)
-            }
-            
         }
-        task.resume()
 
-        
-//        let parameters = "{\n    \"Val1Str\": \"95.01\",\n    \"Val2Str\": \"2\",\n    \"Id\": \"2046\"\n}"
-//        let postData = parameters.data(using: .utf8)
-//
-//        var request = URLRequest(url: URL(string: "https://test1.prod2.wellsoft.pro/api/Counters/AddCounterValues")!)
-//        request.addValue("Bearer 74bd6ace-5e19-48ef-a11a-ae082238a39c", forHTTPHeaderField: "authorization")
-//        request.addValue("application/json", forHTTPHeaderField: "content-type")
-//        request.addValue("1", forHTTPHeaderField: "version")
-//
-//        request.httpMethod = "POST"
-//        request.httpBody = postData
-//
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            guard let data = data else {
-//                print(String(describing: error))
-//                return
-//            }
-//
-//            do {
-//                let decoder = JSONDecoder()
-//                let courses = try decoder.decode([Course].self, from: data)
-////                completion(courses)
-//            } catch let error {
-//                print("Error serialization json", error)
-//            }
-//
-//            print(String(data: data, encoding: .utf8)!)
-//        }
-//
-//        task.resume()
-        
-        
-//        let endPoint = baseURL + "api/Counters/AddCounterValues"
-//
-//        guard let url = URL(string: endPoint) else {
-//            completed(.invalidUrl)
-//            return
-//        }
-//
-//        var urlRequest = URLRequest(url: url)
-//        urlRequest.httpMethod = "POST"
-//        urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
-//
-//        let parameterDictionary: [String : Any] = [
-//            "id"      : counterNewValue.id,
-//            "val1Str" : counterNewValue.val1Str ?? "",
-//            "val2Str" : counterNewValue.val2Str ?? ""
-//        ]
-//        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
-//            return
-//        }
-//        urlRequest.httpBody = httpBody
-//
-//        let task = URLSession.shared.dataTask(with: urlRequest) { _, _, error in
-//            if let _ = error {
-//                completed(.unableToComplete)
-//                return
-//            }
-//        }
-//
-//        task.resume()
+        task.resume()
     }
 }
