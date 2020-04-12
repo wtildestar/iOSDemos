@@ -16,7 +16,7 @@ class CountersViewController: UIViewController {
     
     // MARK: - Properties
     var counters:                            [Counters]?
-    var counterNewValue:                     CounterNewValue?
+//    var counterNewValue:                     CounterNewValue?
     var userResponse:                        UserResponse?
     var sendingCounters: [CounterNewValue] = []
     
@@ -55,36 +55,16 @@ class CountersViewController: UIViewController {
     }
     
     func sendCounter() {
+        
 //        guard let counterModel = counterModel else { return }
-        NetworkManager.shared.sendCounters() { error in
+        NetworkManager.shared.sendCounters(counterNewValue: sendingCounters) { error in
             if let error = error {
                 DispatchQueue.main.async {
-                    self.showAlertSendingError()
+                    self.showAlertWith(title: "Sending error", message: "Unable to send counters data to server")
                 }
                 print(error)
             }
         }
-    }
-    
-    private func showAlertSendingError() {
-        let alertController = UIAlertController(title: "Sending error", message: "Unable to send counters data to server", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default)
-        alertController.addAction(action)
-        self.present(alertController, animated: true)
-    }
-    
-    private func showAlertSendingSuccess() {
-        let alertController = UIAlertController(title: "Sending succefully", message: "Your counters sended completed to server", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default)
-        alertController.addAction(action)
-        self.present(alertController, animated: true)
-    }
-    
-    func showAlertSendingEmpty() {
-        let alertController = UIAlertController(title: "Nothing to send", message: "Your counters aren't changed, please edit them", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default)
-        alertController.addAction(action)
-        self.present(alertController, animated: true)
     }
     
     private func tapView() {
@@ -112,56 +92,16 @@ class CountersViewController: UIViewController {
     }
     
     @IBAction func sendCountersActionButton(_ sender: UIBarButtonItem) {
-//        if !sendingCounters.isEmpty {
-//            for counter in sendingCounters {
-                sendCounter()
-//            }
-            showAlertSendingSuccess()
-//        } else {
-//            showAlertSendingEmpty()
-//        }
-        
-        
-//        guard let counters = counters else { return }
-//        var count = 0
-//
-//        for element in counters {
-//            let index = IndexPath(row: 0, section: count)
-//            let cell = counterTableView.cellForRow(at: index) as? CountersViewCell
-//
-//            let val1 = element.lastValue?.components(separatedBy: ".")[0]
-//            let val2 = element.lastValue?.components(separatedBy: ".")[1]
-//
-//
-//            var newValue1 = cell?.lastValueTextFieldOne.text
-//            var newValue2 = cell?.lastValueTextFieldTwo.text
-//
-//            if cell?.lastValueTextFieldOne == nil {
-//                newValue1 = "0"
-//            }
-//            if cell?.lastValueTextFieldTwo == nil {
-//                newValue2 = "0"
-//            }
-//
-//            guard
-//                let valx1 = val1,
-//                let valx2 = val2,
-//                let newValuex1 = newValue1,
-//                let newValuex2 = newValue2 else {
-//                    return
-//            }
-//
-//            print("val1", valx1, "val2", valx2, "newValue1", newValuex1, "newValue2", newValuex2)
-//            if val1 != newValue1 ?? "0" || val2 != newValue2 ?? "0" {
-//                let newVal1Str = "\(newValue1 ?? "0").\(newValue2 ?? "0")"
-//                self.counterNewValue?.val1Str = newVal1Str
-//                let counterModel = CounterNewValue(id: element.id, val1Str: newVal1Str, val2Str: "0")
-//
-//                sendCounter(counterModel: counterModel)
-//                print("counters was sended", counterModel)
-//            }
-//            count += 1
-//        }
+        if !sendingCounters.isEmpty {
+            sendCounter()
+        } else {
+            DispatchQueue.main.async {
+                self.showAlertWith(title: "Nothing to send", message: "Your counters aren't changed, please edit them")
+            }
+        }
+        DispatchQueue.main.async {
+            self.showAlertWith(title: "Sending succefully", message: "Your counters sended completed to server")
+        }
     }
 }
 

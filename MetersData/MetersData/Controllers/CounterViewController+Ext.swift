@@ -87,3 +87,15 @@ extension CountersViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension CountersViewController {
+    
+    private func showAlertWith(title: String, message: String, style: UIAlertController.Style = .alert) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+}
+

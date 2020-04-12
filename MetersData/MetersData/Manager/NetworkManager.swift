@@ -12,6 +12,7 @@ class NetworkManager {
     static let shared  = NetworkManager()
     let baseURL        = "https://test1.prod2.wellsoft.pro/"
     let cache          = NSCache<NSString, UIImage>()
+    let savedToken = UserDefaults.standard.string(forKey: "token")
     private init() {}
     
     func sendUser(user: User, completed: @escaping (Result<UserResponse, MDError>) -> Void) {
@@ -70,9 +71,6 @@ class NetworkManager {
                 completed(.failure(.invalidUrl))
                 return
         }
-        
-        let defaults = UserDefaults.standard
-        let savedToken = defaults.string(forKey: "token")
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
@@ -140,36 +138,51 @@ class NetworkManager {
         task.resume()
     }
     
-    func sendCounters(completed: @escaping (MDError?) -> Void) {
+    func convertArray(counterNewValue: [CounterNewValue]) -> String {
+        var parameters = ""
+        var comma = ",\n"
+        for (index, counter) in counterNewValue.enumerated() {
+            if index == counterNewValue.count - 1 {
+                comma = ""
+            }
+            parameters += "{\n        \"val1Str\": \"\(counter.val1Str)\",\n        \"val2Str\": \"\(counter.val2Str)\",\n        \"id\": \"\(counter.id)\"\n    }\(comma)"
+        }
+        print(parameters)
+        return parameters
+    }
+    
+    func sendCounters(counterNewValue: [CounterNewValue], completed: @escaping (MDError?) -> Void) {
         
         let endPoint = baseURL + "api/Counters/AddCounterValues"
-
+        
         guard let url = URL(string: endPoint) else {
-            completed(.invalidUrl)
+            print(MDError.invalidUrl)
             return
         }
-
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
-
-        let parameterDictionary: [String : Any] = [
-            "id"      : counterNewValue.id,
-            "val1Str" : counterNewValue.val1Str ?? "",
-            "val2Str" : counterNewValue.val2Str ?? ""
-        ]
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
-            return
-        }
-        urlRequest.httpBody = httpBody
-
-        let task = URLSession.shared.dataTask(with: urlRequest) { _, _, error in
-            if let _ = error {
-                completed(.unableToComplete)
-                return
+        
+        let convertingParams = convertArray(counterNewValue: counterNewValue)
+        
+            let parameters = "[\n \(convertingParams) \n]"
+            print(parameters)
+            
+            let postData = parameters.data(using: .utf8)
+            
+            var request = URLRequest(url: url)
+            request.addValue(("\(savedToken!)"), forHTTPHeaderField: "authorization")
+            request.addValue("1", forHTTPHeaderField: "version")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            request.httpMethod = "POST"
+            request.httpBody = postData
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data else {
+                    print(String(describing: error))
+                    return
+                }
+                print(String(data: data, encoding: .utf8)!)
             }
-        }
-
-        task.resume()
+            
+            task.resume()
     }
 }

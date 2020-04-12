@@ -10,8 +10,8 @@ import Foundation
 
 struct CounterNewValue: Codable, Equatable {
     var id: Int
-    var val1Str: String?
-    var val2Str: String?
+    var val1Str: String
+    var val2Str: String
     
     static func ==(lhs:CounterNewValue, rhs:CounterNewValue) -> Bool { // Implement Equatable
         return lhs.id == rhs.id
