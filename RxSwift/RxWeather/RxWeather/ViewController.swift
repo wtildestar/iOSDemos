@@ -21,9 +21,15 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
-    self.cityNameTextField.rx.value
+    takeValueFromTextField()
+  }
+  
+  private func takeValueFromTextField () {
+    self.cityNameTextField.rx.controlEvent(.editingDidEndOnExit)
+      .asObservable()
+      .map { self.cityNameTextField.text }
       .subscribe(onNext: { city in
+        
         if let city = city {
           if city.isEmpty {
             self.dispayWeather(nil)
@@ -43,7 +49,7 @@ class ViewController: UIViewController {
     let resource = Resource<WeatherBody>(url: url)
     
     URLRequest.load(resource: resource)
-      .observeOn(MainScheduler.instance)
+      .observeOn(MainScheduler.instance) // DispatchQueue.main.async {}
       .catchErrorJustReturn(WeatherBody.empty)
       .subscribe(onNext: { result in
         
@@ -61,7 +67,5 @@ class ViewController: UIViewController {
       self.humidityLabel.text = "∅"
     }
   }
-
-
 }
 
