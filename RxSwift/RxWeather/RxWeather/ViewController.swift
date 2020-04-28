@@ -48,14 +48,20 @@ class ViewController: UIViewController {
     
     let resource = Resource<WeatherBody>(url: url)
     
-    URLRequest.load(resource: resource)
-      .observeOn(MainScheduler.instance) // DispatchQueue.main.async {}
-      .catchErrorJustReturn(WeatherBody.empty)
-      .subscribe(onNext: { result in
-        
-        let weather = result.main
-        self.dispayWeather(weather)
-      }).disposed(by: disposeBag)
+    let search = URLRequest.load(resource: resource)
+    .observeOn(MainScheduler.instance) // Main Thread
+    .catchError { error in
+      print(error.localizedDescription)
+      return Observable.just(WeatherBody.empty)
+    }.asDriver(onErrorJustReturn: WeatherBody.empty)
+    
+    search.map { "\($0.main.temp) ℉" }
+    .drive(self.temperatureLabel.rx.text)
+    .disposed(by: disposeBag)
+  
+    search.map { "\($0.main.humidity) 💦" }
+    .drive(self.humidityLabel.rx.text)
+    .disposed(by: disposeBag)
   }
   
   private func dispayWeather(_ weather: Weather?) {
